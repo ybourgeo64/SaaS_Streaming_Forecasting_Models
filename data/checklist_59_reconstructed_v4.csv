@@ -1,0 +1,119 @@
+section,check_id,check_text,model_domain,evidence_source,test_method,pass_rule,severity_weight
+1. Assumptions Audit,A1,Are all major assumptions explicit and centralized rather than buried in code or narrative?,SaaS,parameter_registry + assumptions sheet,check parameter registry count and presence in workbook,Pass if all major rate/lag/capacity/pricing assumptions appear in registry,3
+1. Assumptions Audit,A1,Are all major assumptions explicit and centralized rather than buried in code or narrative?,Streaming,parameter_registry + assumptions sheet,check parameter registry count and presence in workbook,Pass if all major rate/lag/capacity/pricing assumptions appear in registry,3
+1. Assumptions Audit,A2,Are causal relationships stated clearly for each major driver?,SaaS,reports + calculations sheet,check bridge formulas documented,Pass if all core bridges documented in workbook/report,3
+1. Assumptions Audit,A2,Are causal relationships stated clearly for each major driver?,Streaming,reports + calculations sheet,check bridge formulas documented,Pass if all core bridges documented in workbook/report,3
+1. Assumptions Audit,A3,Are historical dependencies or precedent links documented where used?,SaaS,source_provenance,check provenance rows with source/derived status,Pass if sourced/derived labels and URLs present for major assumptions,2
+1. Assumptions Audit,A3,Are historical dependencies or precedent links documented where used?,Streaming,source_provenance,check provenance rows with source/derived status,Pass if sourced/derived labels and URLs present for major assumptions,2
+1. Assumptions Audit,A4,Are policy / management intervention assumptions explicitly separated from organic behavior?,SaaS,parameter_registry,check controllable vs external classification,Pass if drivers labeled controllable/external/derived,2
+1. Assumptions Audit,A4,Are policy / management intervention assumptions explicitly separated from organic behavior?,Streaming,parameter_registry,check controllable vs external classification,Pass if drivers labeled controllable/external/derived,2
+1. Assumptions Audit,A5,Are contradictory assumptions absent across model layers and reports?,SaaS,model outputs + reports,bridge and scenario consistency tests,Pass if no identity contradictions and report values match outputs,3
+1. Assumptions Audit,A5,Are contradictory assumptions absent across model layers and reports?,Streaming,model outputs + reports,bridge and scenario consistency tests,Pass if no identity contradictions and report values match outputs,3
+1. Assumptions Audit,A6,Is false precision avoided in key assumptions and outputs?,SaaS,reports/workbook,check output rounding in executive sections,Pass if executive outputs rounded to sensible precision,2
+1. Assumptions Audit,A6,Is false precision avoided in key assumptions and outputs?,Streaming,reports/workbook,check output rounding in executive sections,Pass if executive outputs rounded to sensible precision,2
+1. Assumptions Audit,A7,"Is outcome bias avoided, i.e. assumptions are not tuned to a preferred narrative?",SaaS,scenario outputs + unit economics,check downside results and unfavorable outcomes preserved,Pass if downside scenarios and weak economics are reported honestly,3
+1. Assumptions Audit,A7,"Is outcome bias avoided, i.e. assumptions are not tuned to a preferred narrative?",Streaming,scenario outputs + unit economics,check downside results and unfavorable outcomes preserved,Pass if downside scenarios and weak economics are reported honestly,3
+2. Structural Risks,S1,Are circular dependencies eliminated?,SaaS,code/model outputs,inspect bridge logic,Pass if no target-backed plugs or circular outputs,3
+2. Structural Risks,S1,Are circular dependencies eliminated?,Streaming,code/model outputs,inspect bridge logic,Pass if no target-backed plugs or circular outputs,3
+2. Structural Risks,S2,Are outputs not being derived from themselves indirectly?,SaaS,code,inspect formulas and pipeline lags,Pass if customer/revenue outputs arise from independent drivers,3
+2. Structural Risks,S2,Are outputs not being derived from themselves indirectly?,Streaming,code,inspect formulas and pipeline lags,Pass if customer/revenue outputs arise from independent drivers,3
+2. Structural Risks,S3,Are important non-linear relationships represented where needed?,SaaS,code/scenarios,check elasticity/capacity/lumpiness/regime logic,Pass if at least key nonlinearities are modeled,2
+2. Structural Risks,S3,Are important non-linear relationships represented where needed?,Streaming,code/scenarios,check elasticity/capacity/lumpiness/regime logic,Pass if at least key nonlinearities are modeled,2
+2. Structural Risks,S4,Is double-counting removed from revenue and customer bridges?,SaaS,model outputs,bridge equality tests,Pass if all monthly bridge checks equal zero,3
+2. Structural Risks,S4,Is double-counting removed from revenue and customer bridges?,Streaming,model outputs,bridge equality tests,Pass if all monthly bridge checks equal zero,3
+2. Structural Risks,S5,Is top-down logic consistent with bottom-up logic?,SaaS,sanity sheets,compare benchmark guardrails to outputs,Pass if outputs remain within documented benchmark guardrails,3
+2. Structural Risks,S5,Is top-down logic consistent with bottom-up logic?,Streaming,sanity sheets,compare benchmark guardrails to outputs,Pass if outputs remain within documented benchmark guardrails,3
+2. Structural Risks,S6,Are cohort aggregations handled correctly?,SaaS,model outputs,cohort bridge / concentration segments present,Pass if cohort logic plus concentration/segment handling exists,2
+2. Structural Risks,S6,Are cohort aggregations handled correctly?,Streaming,model outputs,cohort bridge / concentration segments present,Pass if cohort logic plus concentration/segment handling exists,2
+2. Structural Risks,S7,Are timing and lags modeled explicitly where material?,SaaS,code/outputs,check lags for SaaS pipeline/onboarding and streaming interventions,Pass if explicit lags change timing of revenue,3
+2. Structural Risks,S7,Are timing and lags modeled explicitly where material?,Streaming,code/outputs,check lags for SaaS pipeline/onboarding and streaming interventions,Pass if explicit lags change timing of revenue,3
+2. Structural Risks,S8,Are hardcoded values minimized and parameterized?,SaaS,parameter registry vs code,check major rates have registry entries,Pass if major levers in registry,2
+2. Structural Risks,S8,Are hardcoded values minimized and parameterized?,Streaming,parameter registry vs code,check major rates have registry entries,Pass if major levers in registry,2
+3. Sensitivity Risks,R1,Are dominant drivers identified explicitly?,SaaS,sensitivity outputs,check tornado/driver ranking exists,Pass if top 3-5 drivers ranked,2
+3. Sensitivity Risks,R1,Are dominant drivers identified explicitly?,Streaming,sensitivity outputs,check tornado/driver ranking exists,Pass if top 3-5 drivers ranked,2
+3. Sensitivity Risks,R2,Are disproportionate output swings tested and disclosed?,SaaS,scenario outputs,check stress and decomposition tables,Pass if large swing attribution shown,3
+3. Sensitivity Risks,R2,Are disproportionate output swings tested and disclosed?,Streaming,scenario outputs,check stress and decomposition tables,Pass if large swing attribution shown,3
+3. Sensitivity Risks,R3,Is uncertainty quantified for key drivers?,SaaS,uncertainty tables,check ranges/fans/MC outputs,Pass if uncertainty tables for major outputs exist,3
+3. Sensitivity Risks,R3,Is uncertainty quantified for key drivers?,Streaming,uncertainty tables,check ranges/fans/MC outputs,Pass if uncertainty tables for major outputs exist,3
+3. Sensitivity Risks,R4,Are correlated driver risks modeled or discussed?,SaaS,scenario matrix,check joint-shock scenarios or correlation matrix,Pass if correlated risks documented,2
+3. Sensitivity Risks,R4,Are correlated driver risks modeled or discussed?,Streaming,scenario matrix,check joint-shock scenarios or correlation matrix,Pass if correlated risks documented,2
+3. Sensitivity Risks,R5,Are assumption ranges wide enough to be decision-useful?,SaaS,stress scenarios,check extreme downside scenarios,Pass if tail scenarios materially widen range,2
+3. Sensitivity Risks,R5,Are assumption ranges wide enough to be decision-useful?,Streaming,stress scenarios,check extreme downside scenarios,Pass if tail scenarios materially widen range,2
+3. Sensitivity Risks,R6,Are non-linear sensitivity effects handled?,SaaS,driver tests,check elasticity/capacity breakpoint tests,Pass if breakpoint or cliff effects included,2
+3. Sensitivity Risks,R6,Are non-linear sensitivity effects handled?,Streaming,driver tests,check elasticity/capacity breakpoint tests,Pass if breakpoint or cliff effects included,2
+4. Data & Input Integrity,D1,Are source data and benchmark inputs validated and cited?,SaaS,source registry,check URLs/type/date/notes,Pass if registry is complete for major assumptions,3
+4. Data & Input Integrity,D1,Are source data and benchmark inputs validated and cited?,Streaming,source registry,check URLs/type/date/notes,Pass if registry is complete for major assumptions,3
+4. Data & Input Integrity,D2,Are manual overrides documented?,SaaS,manual override log,check log exists even if empty,Pass if manual override log sheet exists,2
+4. Data & Input Integrity,D2,Are manual overrides documented?,Streaming,manual override log,check log exists even if empty,Pass if manual override log sheet exists,2
+4. Data & Input Integrity,D3,Is there an audit trail from source to output?,SaaS,parameter registry + source ids,check source IDs mapped to parameters,Pass if source-to-parameter linkage exists,3
+4. Data & Input Integrity,D3,Is there an audit trail from source to output?,Streaming,parameter registry + source ids,check source IDs mapped to parameters,Pass if source-to-parameter linkage exists,3
+4. Data & Input Integrity,D4,Are anomalies / one-offs prevented from dominating logic?,SaaS,registry/notes,check anomaly flags and exclusions,Pass if anomalies explicitly flagged or none declared,2
+4. Data & Input Integrity,D4,Are anomalies / one-offs prevented from dominating logic?,Streaming,registry/notes,check anomaly flags and exclusions,Pass if anomalies explicitly flagged or none declared,2
+4. Data & Input Integrity,D5,Are organic behavior and interventions separated?,SaaS,registry,check driver types,Pass if separation explicit,2
+4. Data & Input Integrity,D5,Are organic behavior and interventions separated?,Streaming,registry,check driver types,Pass if separation explicit,2
+4. Data & Input Integrity,D6,Are lagging indicators not misused as leading inputs?,SaaS,registry/reports,check benchmark use classification,Pass if benchmarks labeled as anchor vs direct leading input,3
+4. Data & Input Integrity,D6,Are lagging indicators not misused as leading inputs?,Streaming,registry/reports,check benchmark use classification,Pass if benchmarks labeled as anchor vs direct leading input,3
+5. Business Reality Alignment,B1,Are capacity constraints modeled?,SaaS,model code/outputs,check sales/implementation/support or market capacity constraints,Pass if capacity constraints bind in at least some scenarios,3
+5. Business Reality Alignment,B1,Are capacity constraints modeled?,Streaming,model code/outputs,check sales/implementation/support or market capacity constraints,Pass if capacity constraints bind in at least some scenarios,3
+5. Business Reality Alignment,B2,Are sales cycles / onboarding delays represented where relevant?,SaaS,model code/outputs,check lag pipeline and onboarding ramps,Pass if new business revenue is delayed where relevant,3
+5. Business Reality Alignment,B2,Are sales cycles / onboarding delays represented where relevant?,Streaming,model code/outputs,check lag pipeline and onboarding ramps,Pass if new business revenue is delayed where relevant,3
+5. Business Reality Alignment,B3,Is enterprise deal lumpiness or timing variability modeled?,SaaS,saas outputs / streaming campaign pulses,check lumpiness logic,Pass if large-deal or campaign pulse variability included,2
+5. Business Reality Alignment,B3,Is enterprise deal lumpiness or timing variability modeled?,Streaming,saas outputs / streaming campaign pulses,check lumpiness logic,Pass if large-deal or campaign pulse variability included,2
+5. Business Reality Alignment,B4,Are dynamic team / customer behaviors represented?,SaaS,code,check productivity/behavior adaptation,Pass if behavior adapts with pressure or scale,2
+5. Business Reality Alignment,B4,Are dynamic team / customer behaviors represented?,Streaming,code,check productivity/behavior adaptation,Pass if behavior adapts with pressure or scale,2
+5. Business Reality Alignment,B5,Are pricing response effects modeled?,SaaS,code/outputs,check price elasticity or churn response,Pass if price changes affect churn/acquisition,2
+5. Business Reality Alignment,B5,Are pricing response effects modeled?,Streaming,code/outputs,check price elasticity or churn response,Pass if price changes affect churn/acquisition,2
+5. Business Reality Alignment,B6,Are operational bottlenecks represented or disclosed?,SaaS,code/reports,check implementation/support bottlenecks or clear disclosure,Pass if modeled or explicitly limited,2
+5. Business Reality Alignment,B6,Are operational bottlenecks represented or disclosed?,Streaming,code/reports,check implementation/support bottlenecks or clear disclosure,Pass if modeled or explicitly limited,2
+6. Dependency & Systemic Risk,Y1,Are root-factor dependencies identified?,SaaS,dependency map,check map exists,Pass if root-factor map listed,2
+6. Dependency & Systemic Risk,Y1,Are root-factor dependencies identified?,Streaming,dependency map,check map exists,Pass if root-factor map listed,2
+6. Dependency & Systemic Risk,Y2,Are driver interdependencies explicit?,SaaS,code/diagrams,check linked drivers,Pass if main feedbacks explicit,3
+6. Dependency & Systemic Risk,Y2,Are driver interdependencies explicit?,Streaming,code/diagrams,check linked drivers,Pass if main feedbacks explicit,3
+6. Dependency & Systemic Risk,Y3,Are correlated risks quantified or scenario-tested?,SaaS,scenario matrix,check joint-shock scenarios,Pass if matrix or scenarios provided,2
+6. Dependency & Systemic Risk,Y3,Are correlated risks quantified or scenario-tested?,Streaming,scenario matrix,check joint-shock scenarios,Pass if matrix or scenarios provided,2
+6. Dependency & Systemic Risk,Y4,Are feedback loops modeled?,SaaS,code,check saturation/price/churn/capacity loops,Pass if loops change results over time,3
+6. Dependency & Systemic Risk,Y4,Are feedback loops modeled?,Streaming,code,check saturation/price/churn/capacity loops,Pass if loops change results over time,3
+6. Dependency & Systemic Risk,Y5,Are regime changes modeled?,SaaS,scenario outputs,check recession/competition/saturation phases,Pass if regime shifts present,3
+6. Dependency & Systemic Risk,Y5,Are regime changes modeled?,Streaming,scenario outputs,check recession/competition/saturation phases,Pass if regime shifts present,3
+7. Edge Cases & Failure Modes,E1,Is top-customer / top-account churn impact handled where material?,SaaS,stress scenarios,check concentration shock scenario,Pass if concentration/top-account shock exists,2
+7. Edge Cases & Failure Modes,E1,Is top-customer / top-account churn impact handled where material?,Streaming,stress scenarios,check concentration shock scenario,Pass if concentration/top-account shock exists,2
+7. Edge Cases & Failure Modes,E2,Is major deal slippage or acquisition miss handled?,SaaS,stress scenarios,check slippage case,Pass if slippage scenario exists,3
+7. Edge Cases & Failure Modes,E2,Is major deal slippage or acquisition miss handled?,Streaming,stress scenarios,check slippage case,Pass if slippage scenario exists,3
+7. Edge Cases & Failure Modes,E3,Is abrupt growth slowdown modeled?,SaaS,scenario outputs,check slowdown scenarios,Pass if slowdown materially changes results,3
+7. Edge Cases & Failure Modes,E3,Is abrupt growth slowdown modeled?,Streaming,scenario outputs,check slowdown scenarios,Pass if slowdown materially changes results,3
+7. Edge Cases & Failure Modes,E4,Is pricing change failure modeled?,SaaS,scenario outputs,check failed-price scenario,Pass if failed-price scenario exists,2
+7. Edge Cases & Failure Modes,E4,Is pricing change failure modeled?,Streaming,scenario outputs,check failed-price scenario,Pass if failed-price scenario exists,2
+7. Edge Cases & Failure Modes,E5,Are extreme scenarios tested?,SaaS,stress outputs,check tail downside scenario,Pass if severe stress cases exist,3
+7. Edge Cases & Failure Modes,E5,Are extreme scenarios tested?,Streaming,stress outputs,check tail downside scenario,Pass if severe stress cases exist,3
+7. Edge Cases & Failure Modes,E6,Does the model behave logically at extremes?,SaaS,stress outputs,check no bridge failure and no illogical sign reversals,Pass if extreme runs remain coherent,3
+7. Edge Cases & Failure Modes,E6,Does the model behave logically at extremes?,Streaming,stress outputs,check no bridge failure and no illogical sign reversals,Pass if extreme runs remain coherent,3
+8. Output Risk & Interpretation,O1,Is false precision removed from outputs?,SaaS,reports/workbook,check rounding,Pass if executive outputs rounded,2
+8. Output Risk & Interpretation,O1,Is false precision removed from outputs?,Streaming,reports/workbook,check rounding,Pass if executive outputs rounded,2
+8. Output Risk & Interpretation,O2,Are uncertainty ranges clearly communicated?,SaaS,reports/workbook,check uncertainty banners and ranges,Pass if ranges shown near headlines,3
+8. Output Risk & Interpretation,O2,Are uncertainty ranges clearly communicated?,Streaming,reports/workbook,check uncertainty banners and ranges,Pass if ranges shown near headlines,3
+8. Output Risk & Interpretation,O3,Is deterministic misinterpretation actively prevented?,SaaS,reports/dashboard,check warnings/intended-use note,Pass if explicit anti-deterministic language present,2
+8. Output Risk & Interpretation,O3,Is deterministic misinterpretation actively prevented?,Streaming,reports/dashboard,check warnings/intended-use note,Pass if explicit anti-deterministic language present,2
+8. Output Risk & Interpretation,O4,Is real-world volatility reflected?,SaaS,outputs,check lumpiness/volatility present,Pass if monthly path not unrealistically smooth where material,2
+8. Output Risk & Interpretation,O4,Is real-world volatility reflected?,Streaming,outputs,check lumpiness/volatility present,Pass if monthly path not unrealistically smooth where material,2
+8. Output Risk & Interpretation,O5,Are driver explanations transparent enough for decision-makers?,SaaS,reports,check driver summaries,Pass if top drivers explained plainly,2
+8. Output Risk & Interpretation,O5,Are driver explanations transparent enough for decision-makers?,Streaming,reports,check driver summaries,Pass if top drivers explained plainly,2
+9. Model Purpose & Bias,P1,Is model purpose clearly defined?,SaaS,reports/dashboard,check intended use statement,Pass if planning/forecasting boundaries explicit,2
+9. Model Purpose & Bias,P1,Is model purpose clearly defined?,Streaming,reports/dashboard,check intended use statement,Pass if planning/forecasting boundaries explicit,2
+9. Model Purpose & Bias,P2,Are assumptions aligned to that purpose?,SaaS,reports/registry,check benchmark anchor language,Pass if assumptions framed as planning anchors not targets,2
+9. Model Purpose & Bias,P2,Are assumptions aligned to that purpose?,Streaming,reports/registry,check benchmark anchor language,Pass if assumptions framed as planning anchors not targets,2
+9. Model Purpose & Bias,P3,Is narrative pressure bias removed?,SaaS,scenario outputs,check downside preserved,Pass if weak/negative outcomes left intact,3
+9. Model Purpose & Bias,P3,Is narrative pressure bias removed?,Streaming,scenario outputs,check downside preserved,Pass if weak/negative outcomes left intact,3
+9. Model Purpose & Bias,P4,Are downside risks represented fairly?,SaaS,stress outputs,check severe downside coverage,Pass if downside cases included and visible,3
+9. Model Purpose & Bias,P4,Are downside risks represented fairly?,Streaming,stress outputs,check severe downside coverage,Pass if downside cases included and visible,3
+9. Model Purpose & Bias,P5,Is optimism/pessimism balanced?,SaaS,base vs range,check base within scenario distribution,Pass if base is not obviously promotional outlier,2
+9. Model Purpose & Bias,P5,Is optimism/pessimism balanced?,Streaming,base vs range,check base within scenario distribution,Pass if base is not obviously promotional outlier,2
+10. Unit Economics Consistency,U1,"Are CAC, CLV/LTV, churn, and ARPU/ARPA internally aligned?",SaaS,MC + model outputs,check internal consistency and payback,Pass if consistent and reconciled,3
+10. Unit Economics Consistency,U1,"Are CAC, CLV/LTV, churn, and ARPU/ARPA internally aligned?",Streaming,MC + model outputs,check internal consistency and payback,Pass if consistent and reconciled,3
+10. Unit Economics Consistency,U2,Is expansion consistent with base dynamics?,SaaS,model outputs,check expansion tied to retained base,Pass if expansion derives from retained base,2
+10. Unit Economics Consistency,U2,Is expansion consistent with base dynamics?,Streaming,model outputs,check expansion tied to retained base,Pass if expansion derives from retained base,2
+10. Unit Economics Consistency,U3,Are retention and growth coherent together?,SaaS,scenario outputs,check high churn lowers growth,Pass if coherence holds,3
+10. Unit Economics Consistency,U3,Are retention and growth coherent together?,Streaming,scenario outputs,check high churn lowers growth,Pass if coherence holds,3
+10. Unit Economics Consistency,U4,Are margins aligned with scale and context?,SaaS,unit economics sheet,check margin function or disclosure,Pass if scale or limitation handled,2
+10. Unit Economics Consistency,U4,Are margins aligned with scale and context?,Streaming,unit economics sheet,check margin function or disclosure,Pass if scale or limitation handled,2
+10. Unit Economics Consistency,U5,Are growth and efficiency not contradicting each other?,SaaS,unit economics outputs,check CAC payback / efficiency diagnostics,Pass if contradictions surfaced,3
+10. Unit Economics Consistency,U5,Are growth and efficiency not contradicting each other?,Streaming,unit economics outputs,check CAC payback / efficiency diagnostics,Pass if contradictions surfaced,3

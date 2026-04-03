@@ -1,0 +1,7 @@
+Factor A,Factor B,Relationship
+Macro shock,Acquisition rate,Negative correlation through lower demand and budgets
+Macro shock,Contraction rate,Positive correlation via downgrade pressure
+Competition pressure,Churn rate,Positive correlation via switching and promo intensity
+Pricing increase,Acquisition conversion,Negative correlation via price elasticity
+Pricing increase,Churn,Positive correlation via price sensitivity
+Capacity bottleneck,Recognized new logo,Negative correlation through implementation constraints

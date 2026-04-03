@@ -1,0 +1,3 @@
+Item,Status,Reason
+Streaming CAC,Excluded,Public-source support was not strong enough to estimate company-specific streaming CAC defensibly without reintroducing circularity.
+Seats / licenses / users factor,Excluded,No sufficiently defensible public-source dynamic was available for a shared seat-style KPI across both domains.

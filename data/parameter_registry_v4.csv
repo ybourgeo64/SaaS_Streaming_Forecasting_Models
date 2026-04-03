@@ -1,0 +1,35 @@
+Domain,Parameter,Value,Unit,Type,Source_ID,Owner,Description
+Streaming,starting_rate_card_mrr,12026.0,USD monthly,input,SRC01,model,Observed anchor used to derive beginning subs
+Streaming,weighted_arpu,9.6005,USD monthly,input,SRC01,model,Subscriber-weighted ARPU anchor
+Streaming,billing_leakage_base,0.045,share,external,SRC03,finance,Base leakage from billing decline context
+Streaming,billing_leakage_low,0.02,share,external,SRC03,finance,Low leakage scenario
+Streaming,billing_leakage_high,0.08,share,external,SRC03,finance,High leakage scenario
+Streaming,base_acquisition_rate,0.06,share per month,controllable,SRC09,growth,Base gross add rate before saturation
+Streaming,market_capacity_multiplier,2.1,x starting subs,derived,SRC09,strategy,Crude capacity guardrail
+Streaming,annual_price_growth,0.05,share annual,controllable,SRC08,pricing,Base list-price growth assumption
+Streaming,price_elasticity_churn,0.85,multiplier sensitivity,derived,SRC08,pricing,Churn response to price pressure
+Streaming,campaign_pulse_amplitude,0.18,share,controllable,SRC09,growth,Acquisition pulse variability
+Streaming,retention_intervention_lag_months,1.0,months,controllable,SRC09,growth,Delay before interventions affect churn
+Streaming,gross_expansion_rate_base,0.0025,share monthly,derived,SRC05,strategy,Installed-base monetization beyond pure ARPU
+Streaming,contraction_rate_base,0.0015,share monthly,derived,SRC08,strategy,Promo/downgrade dilution
+SaaS,starting_arr,2000000.0,USD annual,input,SRC04,finance,Benchmark-normalized archetype midpoint
+SaaS,starting_arpa_monthly,1000.0,USD monthly,input,SRC04,finance,ARPA anchor for >$1k bucket
+SaaS,base_acquisition_rate,0.014,share per month,controllable,SRC09,sales,Base monthly new-logo customer acquisition rate
+SaaS,sales_cycle_months,2.0,months,operational,SRC09,sales,Lag from pipeline generation to closed-won
+SaaS,onboarding_lag_months,1.0,months,operational,SRC09,cs,Lag from close to revenue recognition
+SaaS,implementation_capacity_per_month,3.5,customers per month,operational,SRC09,cs,Max new customers onboarded per month in base case
+SaaS,sales_capacity_per_month,4.2,customers per month,operational,SRC09,sales,Max new customers closed per month in base case
+SaaS,enterprise_deal_probability_qtr,0.45,probability,derived,SRC09,sales,Chance of one larger enterprise deal each quarter
+SaaS,enterprise_deal_size_customers,1.6,customer equivalents,derived,SRC09,sales,Lumpy enterprise contribution converted to customer equivalents
+SaaS,top_customer_arr_share,0.09,share,derived,SRC09,finance,Concentration shock for largest account stress
+SaaS,base_retained_churn_rate,0.0115,share monthly,external,SRC04,cs,Base retained-customer churn anchor
+SaaS,base_new_churn_multiplier,1.18,x,derived,SRC04,cs,New customers churn faster than retained
+SaaS,base_reactivated_churn_multiplier,1.2,x,derived,SRC04,cs,Reactivated customers churn faster than retained
+SaaS,base_expansion_rate,0.017,share monthly,external,SRC05,sales,Gross expansion on retained ARR
+SaaS,base_contraction_rate,0.008,share monthly,external,SRC05,finance,Contraction / downgrade rate
+SaaS,gross_margin_base,0.78,share,external,SRC06,finance,Gross margin used in unit economics
+SaaS,gross_margin_scale_slope,0.01,share,derived,SRC06,finance,Margin modestly improves with ARR scale
+SaaS,new_customer_cac_ratio,1.35,x ACV,external,SRC07,finance,Independent CAC benchmark input
+SaaS,annual_price_growth,0.05,share annual,controllable,SRC08,pricing,Base pricing uplift assumption
+SaaS,price_elasticity_logo_churn,0.6,multiplier sensitivity,derived,SRC08,pricing,Customer churn response to price pressure
+SaaS,price_elasticity_acquisition,0.4,multiplier sensitivity,derived,SRC08,pricing,New-logo conversion response to price pressure

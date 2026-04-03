@@ -1,0 +1,10 @@
+metric,value,source
+Gross margin overall median,0.72,KeyBanc/Sapphire overall survey group 2024
+Gross margin top quartile,0.81,KeyBanc/Sapphire top quartile 2024
+Logo churn monthly median (ARR $1M-$3M),0.013,ChartMogul customer churn benchmark
+Gross MRR churn monthly (> $1k ARPA),0.027,ChartMogul revenue churn benchmark
+Net MRR churn monthly (> $1k ARPA),0.001,ChartMogul revenue churn benchmark
+New customer CAC ratio median,1.76,Benchmarkit/Pavilion-type 2024 benchmark summary
+New customer CAC ratio top quartile,2.03,Benchmarkit/Pavilion-type 2024 benchmark summary
+Expansion share of positive ARR movement,0.26,OpenView early-to-mid-stage benchmark context
+Private SaaS annual growth median,0.2,High Alpha/OpenView 2024 benchmark context

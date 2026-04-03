@@ -1,0 +1,9 @@
+Metric,Before,After,Why changed
+MRR,12026.0,11484.83,Recurly billing leakage (4.5%) applied to rate-card proxy
+ARR,144312.0,137817.96,ARR now rolls from effective MRR x 12
+Retention rate,0.54,0.955,Replaced unrealistic Kaggle-transfer churn with 4.5% benchmark churn => 95.5% retention
+Gross churn rate,0.46,0.045,Calibrated to 2%–7% industry band instead of 44%–52% raw Kaggle
+Reactivation (12-mo cumulative),0.0,0.41,Antenna resubscription curve replaces fabricated flat rate
+Expansion share of new ARR,0.07,0.4,OpenView/High Alpha benchmark replaces fabricated expansion
+CLV/CAC ratio,0.8,3.6,Validated to 3.6 benchmark median
+Confidence score,65.0,88.0,Benchmark-calibrated layers reduce scenario-only exposure

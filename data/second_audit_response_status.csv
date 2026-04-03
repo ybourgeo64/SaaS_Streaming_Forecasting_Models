@@ -1,0 +1,19 @@
+Issue_ID,Issue,Status,Resolution
+1,Fabricated CLV/CAC Monte Carlo,Fixed,Removed any hardcoded override; v3 uses actual Monte Carlo outputs from mc_summary and CSV/report values are generated from the same object.
+2,SaaS churn insensitivity,Fixed,Scenarios re-run the full model with different assumptions; low/high churn now produce different Month24 ARR outcomes.
+3,Target-backed acquisition plug,Fixed,New-logo acquisition is now an independent customer-rate input; ARR is an output and can decline.
+4,SaaS ending ARR double-counting,Fixed,ARR now follows a bridge identity: retained after churn + reactivated ARR + new-logo ARR + expansion ARR - contraction ARR.
+5,Sensitivity analysis cosmetic,Fixed,Sensitivity tables now come from full model re-runs under different scenarios.
+6,SaaS self-healing to churn,Fixed,Higher churn reduces customers and ARR because acquisition no longer plugs to a target.
+7,Streaming churn rates static,Partially fixed,"Rates are now cohort-specific and state-responsive to price pressure, competition, macro shock, and seasonality."
+8,Weak reactivation provenance,Fixed with transparency,Voluntary curve is sourced from Antenna cumulative points with documented interpolation; involuntary curve is explicitly derived from Recurly aggregate recovery evidence.
+9,Arbitrary repeat multipliers,Fixed,Removed arbitrary repeat multipliers; repeat churners simply re-enter the same pool logic.
+10,Streaming subscriber accounting error,Fixed,Ending subscribers now satisfy the exact bridge identity every month.
+11,No cohort aging logic,Fixed,"Tenure buckets 0-6, 7-12, and 13-24+ now affect churn."
+12,Streaming sensitivity too narrow,Fixed,"Added recession, competition, saturation, and bull scenarios with materially wider output range."
+13,No macro / competitive scenarios,Fixed,"Scenario set now includes recession, competition, and saturation cases."
+14,Month 1 net churn edge case,Fixed,Month 1 net churn now reflects no reactivation offset and is computed directly from the bridge.
+15,$12K floor prevents contraction,Fixed,Removed any acquisition / ARR floor that forced positive growth.
+16,Hardcoded promotional timing,Fixed,Removed calendar-promo logic; price pressure is scenario driven and continuous.
+17,Involuntary reactivation ends at month 4,Fixed,Derived curve now extends through month 6 and remaining months are explicitly zero.
+18,CSV/report mismatch,Fixed,All reports pull their quoted values directly from the same CSV-backed objects produced in v3 generation.

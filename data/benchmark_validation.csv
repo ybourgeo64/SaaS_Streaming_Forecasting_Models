@@ -1,0 +1,12 @@
+Benchmark Item,Value,Notes
+Netflix global ARM 2024,11.7,Public filings / referenced IR
+Disney+ overall ARPU Q4 2024,7.2,Public earnings / SEC exhibit
+WBD DTC ARPU Q4 2024,7.44,Public earnings release
+Benchmark ARPU simple average,8.78,Used for reasonableness anchor only
+Billing leakage discount,0.045,"15% declines * (1 - 69.4% recovery) ≈ 4.6%, rounded to 4.5%"
+Streaming / subscription churn band low,0.02,Low-end public benchmark
+Streaming / subscription churn band high,0.07,High-end public benchmark
+Base churn used,0.045,Middle of defensible band
+CLV/CAC validation target,3.6,Benchmark median
+Expansion share of new ARR,0.4,OpenView/High Alpha 2024 benchmark
+Reactivation 12-month cumulative,0.41,Antenna public insight

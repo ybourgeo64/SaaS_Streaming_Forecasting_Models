@@ -1,0 +1,119 @@
+section,check_id,model_domain,status,evidence,remaining_limitation
+1. Assumptions Audit,A1,SaaS,✅ Pass,Parameter registry v4 and workbook assumptions sheet centralize major assumptions.,
+1. Assumptions Audit,A1,Streaming,✅ Pass,Parameter registry v4 and workbook assumptions sheet centralize major assumptions.,
+1. Assumptions Audit,A2,SaaS,✅ Pass,Calculations sheet and reports document bridges.,
+1. Assumptions Audit,A2,Streaming,✅ Pass,Calculations sheet and reports document bridges.,
+1. Assumptions Audit,A3,SaaS,⚠️ Partial,"Source registry provides source/derived classification with source IDs, but several benchmark anchors remain high-level rather than raw-data extracts.",Would improve with primary-source snapshots and versioned source files.
+1. Assumptions Audit,A3,Streaming,⚠️ Partial,"Source registry provides source/derived classification with source IDs, but several benchmark anchors remain high-level rather than raw-data extracts.",Would improve with primary-source snapshots and versioned source files.
+1. Assumptions Audit,A4,SaaS,✅ Pass,"Registry explicitly labels controllable, external, operational, and derived assumptions.",
+1. Assumptions Audit,A4,Streaming,✅ Pass,"Registry explicitly labels controllable, external, operational, and derived assumptions.",
+1. Assumptions Audit,A5,SaaS,✅ Pass,Bridge checks pass and reports use generated outputs.,
+1. Assumptions Audit,A5,Streaming,✅ Pass,Bridge checks pass and reports use generated outputs.,
+1. Assumptions Audit,A6,SaaS,✅ Pass,Executive outputs rounded and ranges emphasized.,
+1. Assumptions Audit,A6,Streaming,✅ Pass,Executive outputs rounded and ranges emphasized.,
+1. Assumptions Audit,A7,SaaS,✅ Pass,Weak CLV/CAC and downside cases remain visible.,
+1. Assumptions Audit,A7,Streaming,✅ Pass,Weak CLV/CAC and downside cases remain visible.,
+2. Structural Risks,S1,SaaS,✅ Pass,No circular logic and explicit bridge identities hold.,
+2. Structural Risks,S1,Streaming,✅ Pass,No circular logic and explicit bridge identities hold.,
+2. Structural Risks,S2,SaaS,✅ Pass,No circular logic and explicit bridge identities hold.,
+2. Structural Risks,S2,Streaming,✅ Pass,No circular logic and explicit bridge identities hold.,
+2. Structural Risks,S3,SaaS,✅ Pass,"v4 adds lags, capacity constraints, lumpiness, elasticity, and stress regimes.",
+2. Structural Risks,S3,Streaming,✅ Pass,"v4 adds lags, capacity constraints, lumpiness, elasticity, and stress regimes.",
+2. Structural Risks,S4,SaaS,✅ Pass,No circular logic and explicit bridge identities hold.,
+2. Structural Risks,S4,Streaming,✅ Pass,No circular logic and explicit bridge identities hold.,
+2. Structural Risks,S5,SaaS,⚠️ Partial,"Guardrail and scenario outputs improve plausibility, but top-down market sizing remains coarse rather than externally refreshed.",Would improve with stronger top-down TAM and segment sanity checks.
+2. Structural Risks,S5,Streaming,⚠️ Partial,"Guardrail and scenario outputs improve plausibility, but top-down market sizing remains coarse rather than externally refreshed.",Would improve with stronger top-down TAM and segment sanity checks.
+2. Structural Risks,S6,SaaS,⚠️ Partial,"SaaS adds concentration handling and streaming preserves cohort logic, but richer customer/channel segmentation is still absent.",Segment-level cohorts remain a v5 item.
+2. Structural Risks,S6,Streaming,⚠️ Partial,"SaaS adds concentration handling and streaming preserves cohort logic, but richer customer/channel segmentation is still absent.",Segment-level cohorts remain a v5 item.
+2. Structural Risks,S7,SaaS,✅ Pass,SaaS pipeline/onboarding lags and streaming campaign lag added.,
+2. Structural Risks,S7,Streaming,✅ Pass,SaaS pipeline/onboarding lags and streaming campaign lag added.,
+2. Structural Risks,S8,SaaS,✅ Pass,Major rates moved into parameter registry.,
+2. Structural Risks,S8,Streaming,✅ Pass,Major rates moved into parameter registry.,
+3. Sensitivity Risks,R1,SaaS,✅ Pass,Dominant-driver tables created for both models.,
+3. Sensitivity Risks,R1,Streaming,✅ Pass,Dominant-driver tables created for both models.,
+3. Sensitivity Risks,R2,SaaS,⚠️ Partial,"Scenario decomposition and driver deltas are available, but not yet a full waterfall attribution for every scenario.",Could add bridge-style change decomposition in a future version.
+3. Sensitivity Risks,R2,Streaming,⚠️ Partial,"Scenario decomposition and driver deltas are available, but not yet a full waterfall attribution for every scenario.",Could add bridge-style change decomposition in a future version.
+3. Sensitivity Risks,R3,SaaS,✅ Pass,Expanded scenario ranges plus Monte Carlo for SaaS; streaming still relies on scenario bands rather than probabilistic distribution.,"Streaming uncertainty is still scenario-based, not simulated probabilistically."
+3. Sensitivity Risks,R3,Streaming,⚠️ Partial,Expanded scenario ranges plus Monte Carlo for SaaS; streaming still relies on scenario bands rather than probabilistic distribution.,"Streaming uncertainty is still scenario-based, not simulated probabilistically."
+3. Sensitivity Risks,R4,SaaS,⚠️ Partial,"Dependency/correlation map and joint scenarios included, but no formal correlation calibration was estimated from first-party data.",Correlation structure remains judgment-based.
+3. Sensitivity Risks,R4,Streaming,⚠️ Partial,"Dependency/correlation map and joint scenarios included, but no formal correlation calibration was estimated from first-party data.",Correlation structure remains judgment-based.
+3. Sensitivity Risks,R5,SaaS,✅ Pass,Stress scenarios materially widen downside ranges.,
+3. Sensitivity Risks,R5,Streaming,✅ Pass,Stress scenarios materially widen downside ranges.,
+3. Sensitivity Risks,R6,SaaS,⚠️ Partial,"Elasticity/capacity/lumpiness introduce nonlinear sensitivities, but threshold calibration remains assumption-driven.",Breakpoint values should eventually be estimated from observed data.
+3. Sensitivity Risks,R6,Streaming,⚠️ Partial,"Elasticity/capacity/lumpiness introduce nonlinear sensitivities, but threshold calibration remains assumption-driven.",Breakpoint values should eventually be estimated from observed data.
+4. Data & Input Integrity,D1,SaaS,⚠️ Partial,"Source registry with IDs and URLs exists, but some sources are benchmark pages rather than raw source extracts.",Would improve with downloaded benchmark snapshots and filing excerpts.
+4. Data & Input Integrity,D1,Streaming,⚠️ Partial,"Source registry with IDs and URLs exists, but some sources are benchmark pages rather than raw source extracts.",Would improve with downloaded benchmark snapshots and filing excerpts.
+4. Data & Input Integrity,D2,SaaS,✅ Pass,Manual override log sheet/file created.,
+4. Data & Input Integrity,D2,Streaming,✅ Pass,Manual override log sheet/file created.,
+4. Data & Input Integrity,D3,SaaS,✅ Pass,Parameter registry maps each major assumption to a source ID.,
+4. Data & Input Integrity,D3,Streaming,✅ Pass,Parameter registry maps each major assumption to a source ID.,
+4. Data & Input Integrity,D4,SaaS,⚠️ Partial,"Anomaly handling documented, but no live external-data outlier detection is needed in benchmark-only model.",Would improve with raw benchmark ingestion pipeline.
+4. Data & Input Integrity,D4,Streaming,⚠️ Partial,"Anomaly handling documented, but no live external-data outlier detection is needed in benchmark-only model.",Would improve with raw benchmark ingestion pipeline.
+4. Data & Input Integrity,D5,SaaS,✅ Pass,Behavior vs intervention labels explicit in registry.,
+4. Data & Input Integrity,D5,Streaming,✅ Pass,Behavior vs intervention labels explicit in registry.,
+4. Data & Input Integrity,D6,SaaS,⚠️ Partial,"Benchmarks are labeled as sourced anchors or derived assumptions, but some lagging benchmarks still shape base assumptions.",Would improve with first-party operating data.
+4. Data & Input Integrity,D6,Streaming,⚠️ Partial,"Benchmarks are labeled as sourced anchors or derived assumptions, but some lagging benchmarks still shape base assumptions.",Would improve with first-party operating data.
+5. Business Reality Alignment,B1,SaaS,✅ Pass,Market capacity and sales/implementation capacity constraints now bind.,
+5. Business Reality Alignment,B1,Streaming,✅ Pass,Market capacity and sales/implementation capacity constraints now bind.,
+5. Business Reality Alignment,B2,SaaS,✅ Pass,SaaS includes 2-month sales cycle and 1-month onboarding lag.,
+5. Business Reality Alignment,B2,Streaming,✅ Pass,SaaS includes 2-month sales cycle and 1-month onboarding lag.,
+5. Business Reality Alignment,B3,SaaS,✅ Pass,Enterprise deal lumpiness and streaming campaign pulses added.,
+5. Business Reality Alignment,B3,Streaming,✅ Pass,Enterprise deal lumpiness and streaming campaign pulses added.,
+5. Business Reality Alignment,B4,SaaS,⚠️ Partial,Customer behavior adapts; team productivity is partly reflected through capacity but not full staffing dynamics.,Could add hiring/attrition dynamics later.
+5. Business Reality Alignment,B4,Streaming,⚠️ Partial,Customer behavior adapts; team productivity is partly reflected through capacity but not full staffing dynamics.,Could add hiring/attrition dynamics later.
+5. Business Reality Alignment,B5,SaaS,✅ Pass,Price elasticity impacts churn and acquisition.,
+5. Business Reality Alignment,B5,Streaming,✅ Pass,Price elasticity impacts churn and acquisition.,
+5. Business Reality Alignment,B6,SaaS,⚠️ Partial,"Operational bottlenecks are modeled through sales and implementation capacity, but support/service degradation is still simplified.",Support backlog and quality decay are not fully modeled.
+5. Business Reality Alignment,B6,Streaming,⚠️ Partial,"Operational bottlenecks are modeled through sales and implementation capacity, but support/service degradation is still simplified.",Support backlog and quality decay are not fully modeled.
+6. Dependency & Systemic Risk,Y1,SaaS,⚠️ Partial,"Dependency map sheet created, but it is qualitative rather than quantitatively estimated.",Would improve with empirical dependency estimation.
+6. Dependency & Systemic Risk,Y1,Streaming,⚠️ Partial,"Dependency map sheet created, but it is qualitative rather than quantitatively estimated.",Would improve with empirical dependency estimation.
+6. Dependency & Systemic Risk,Y2,SaaS,✅ Pass,Interdependencies explicit in code and reports.,
+6. Dependency & Systemic Risk,Y2,Streaming,✅ Pass,Interdependencies explicit in code and reports.,
+6. Dependency & Systemic Risk,Y3,SaaS,⚠️ Partial,"Correlated joint scenarios included, but no covariance-based risk engine exists.",Correlation quantification remains approximate.
+6. Dependency & Systemic Risk,Y3,Streaming,⚠️ Partial,"Correlated joint scenarios included, but no covariance-based risk engine exists.",Correlation quantification remains approximate.
+6. Dependency & Systemic Risk,Y4,SaaS,✅ Pass,"Feedback loops for capacity, saturation, price, and churn active.",
+6. Dependency & Systemic Risk,Y4,Streaming,✅ Pass,"Feedback loops for capacity, saturation, price, and churn active.",
+6. Dependency & Systemic Risk,Y5,SaaS,✅ Pass,Bull/recession/competition/saturation/stress regimes modeled.,
+6. Dependency & Systemic Risk,Y5,Streaming,✅ Pass,Bull/recession/competition/saturation/stress regimes modeled.,
+7. Edge Cases & Failure Modes,E1,SaaS,✅ Pass,SaaS top-customer loss scenario added; streaming only approximates channel/platform concentration through stress scenarios.,Streaming concentration shock is still indirect.
+7. Edge Cases & Failure Modes,E1,Streaming,⚠️ Partial,SaaS top-customer loss scenario added; streaming only approximates channel/platform concentration through stress scenarios.,Streaming concentration shock is still indirect.
+7. Edge Cases & Failure Modes,E2,SaaS,✅ Pass,SaaS deal slippage scenario added; streaming acquisition miss visible in stress/recession.,
+7. Edge Cases & Failure Modes,E2,Streaming,✅ Pass,SaaS deal slippage scenario added; streaming acquisition miss visible in stress/recession.,
+7. Edge Cases & Failure Modes,E3,SaaS,✅ Pass,Growth slowdown modeled.,
+7. Edge Cases & Failure Modes,E3,Streaming,✅ Pass,Growth slowdown modeled.,
+7. Edge Cases & Failure Modes,E4,SaaS,✅ Pass,Failed-price scenarios added.,
+7. Edge Cases & Failure Modes,E4,Streaming,✅ Pass,Failed-price scenarios added.,
+7. Edge Cases & Failure Modes,E5,SaaS,⚠️ Partial,"Tail stress scenarios added, but not full probabilistic tail-loss analysis.",Extreme scenarios remain scenario-based rather than statistically calibrated.
+7. Edge Cases & Failure Modes,E5,Streaming,⚠️ Partial,"Tail stress scenarios added, but not full probabilistic tail-loss analysis.",Extreme scenarios remain scenario-based rather than statistically calibrated.
+7. Edge Cases & Failure Modes,E6,SaaS,✅ Pass,Bridge checks remain zero under tested scenarios.,
+7. Edge Cases & Failure Modes,E6,Streaming,✅ Pass,Bridge checks remain zero under tested scenarios.,
+8. Output Risk & Interpretation,O1,SaaS,✅ Pass,Rounded executive outputs used.,
+8. Output Risk & Interpretation,O1,Streaming,✅ Pass,Rounded executive outputs used.,
+8. Output Risk & Interpretation,O2,SaaS,⚠️ Partial,"Uncertainty ranges appear near headline metrics and scenario tables, but workbook users can still focus on base-case cells.",Could strengthen visual warning banners further.
+8. Output Risk & Interpretation,O2,Streaming,⚠️ Partial,"Uncertainty ranges appear near headline metrics and scenario tables, but workbook users can still focus on base-case cells.",Could strengthen visual warning banners further.
+8. Output Risk & Interpretation,O3,SaaS,✅ Pass,Reports include intended-use and anti-deterministic interpretation language.,
+8. Output Risk & Interpretation,O3,Streaming,✅ Pass,Reports include intended-use and anti-deterministic interpretation language.,
+8. Output Risk & Interpretation,O4,SaaS,⚠️ Partial,"Lumpiness, slippage, and scenario volatility reduce unrealistic smoothness, but not all real-world noise is represented.",Still smoother than first-party monthly operations.
+8. Output Risk & Interpretation,O4,Streaming,⚠️ Partial,"Lumpiness, slippage, and scenario volatility reduce unrealistic smoothness, but not all real-world noise is represented.",Still smoother than first-party monthly operations.
+8. Output Risk & Interpretation,O5,SaaS,✅ Pass,Driver summaries included.,
+8. Output Risk & Interpretation,O5,Streaming,✅ Pass,Driver summaries included.,
+9. Model Purpose & Bias,P1,SaaS,✅ Pass,Reports state planning/forecasting purpose explicitly.,
+9. Model Purpose & Bias,P1,Streaming,✅ Pass,Reports state planning/forecasting purpose explicitly.,
+9. Model Purpose & Bias,P2,SaaS,⚠️ Partial,"Assumptions are framed as planning anchors, but benchmark norms may still be interpreted as target levels by some users.",Would improve with clearer target-vs-anchor separation in dashboards.
+9. Model Purpose & Bias,P2,Streaming,⚠️ Partial,"Assumptions are framed as planning anchors, but benchmark norms may still be interpreted as target levels by some users.",Would improve with clearer target-vs-anchor separation in dashboards.
+9. Model Purpose & Bias,P3,SaaS,✅ Pass,Weak and negative outcomes preserved.,
+9. Model Purpose & Bias,P3,Streaming,✅ Pass,Weak and negative outcomes preserved.,
+9. Model Purpose & Bias,P4,SaaS,✅ Pass,Downside scenarios expanded.,
+9. Model Purpose & Bias,P4,Streaming,✅ Pass,Downside scenarios expanded.,
+9. Model Purpose & Bias,P5,SaaS,⚠️ Partial,"Base case sits within a balanced range, but some benchmark-calibrated inputs still carry optimism risk without first-party friction data.",Would improve with historical internal calibration.
+9. Model Purpose & Bias,P5,Streaming,⚠️ Partial,"Base case sits within a balanced range, but some benchmark-calibrated inputs still carry optimism risk without first-party friction data.",Would improve with historical internal calibration.
+10. Unit Economics Consistency,U1,SaaS,⚠️ Partial,"SaaS now includes CLV/CAC and CAC payback, but unit economics remain benchmark-calibrated and still relatively weak; streaming avoids unsupported unit-economics overreach.",SaaS unit economics would improve with first-party cohort data.
+10. Unit Economics Consistency,U1,Streaming,✅ Pass,"SaaS now includes CLV/CAC and CAC payback, but unit economics remain benchmark-calibrated and still relatively weak; streaming avoids unsupported unit-economics overreach.",SaaS unit economics would improve with first-party cohort data.
+10. Unit Economics Consistency,U2,SaaS,✅ Pass,Expansion tied to retained/installed base.,
+10. Unit Economics Consistency,U2,Streaming,✅ Pass,Expansion tied to retained/installed base.,
+10. Unit Economics Consistency,U3,SaaS,✅ Pass,High churn / stress reduce growth and NRR.,
+10. Unit Economics Consistency,U3,Streaming,✅ Pass,High churn / stress reduce growth and NRR.,
+10. Unit Economics Consistency,U4,SaaS,⚠️ Partial,"SaaS gross margin is scale-aware, but still simplified; streaming margin remains excluded by design.","Margin realism is still incomplete, especially for streaming."
+10. Unit Economics Consistency,U4,Streaming,⚠️ Partial,"SaaS gross margin is scale-aware, but still simplified; streaming margin remains excluded by design.","Margin realism is still incomplete, especially for streaming."
+10. Unit Economics Consistency,U5,SaaS,⚠️ Partial,"SaaS includes CAC payback and Rule-of-40 proxy, but efficiency diagnostics are still benchmark-based rather than internally validated; streaming avoids unsupported efficiency claims.",Would improve with observed payback and profitability data.
+10. Unit Economics Consistency,U5,Streaming,✅ Pass,"SaaS includes CAC payback and Rule-of-40 proxy, but efficiency diagnostics are still benchmark-based rather than internally validated; streaming avoids unsupported efficiency claims.",Would improve with observed payback and profitability data.

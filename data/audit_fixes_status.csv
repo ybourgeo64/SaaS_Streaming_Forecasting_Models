@@ -1,0 +1,18 @@
+Issue ID,Audit Issue,Status,Response
+1,Circular CLV/CAC construction,Fixed,"SaaS CAC now calculated independently from new-customer CAC ratio; CLV calculated from churn, margin, ARPA, and discounting; ratio is output with simulation interval."
+2,Constant acquisition rate,Fixed,"Both models use dynamic acquisition tied to benchmark growth, seasonality, and maturity/saturation effects."
+3,Billing leakage uncertainty undisclosed,Fixed,Leakage now disclosed as 2% / 4.59% / 8% low-base-high scenarios with derivation shown.
+4,ARPU averaging weak,Fixed,Streaming ARPU now uses subscriber-weighted average and documents simple-average comparison.
+5,Expansion disconnected from installed base,Fixed,Expansion now applies to retained/reactivated installed base in both models.
+6,Reactivation not segmented by churn type,Fixed,Voluntary and involuntary churn pools use different recovery curves.
+7,No feedback loops,Fixed,Churn now affects CAC in SaaS; expansion improves retention; reactivation pools deplete over time.
+8,Static churn rate regardless of mix,Fixed,"New, retained, and reactivated cohorts carry different churn rates."
+9,Seat factor non-functional,Fixed by exclusion,Removed due to insufficient confidence; exclusion disclosed.
+10,Beginning subscribers unexplained,Fixed,Streaming beginning subscribers derived from rate-card MRR / weighted ARPU; SaaS beginning customers derived from ARR-band archetype / ARPA.
+11,Churn sensitivity not quantified,Fixed,Scenario tables for low/base/high churn and downstream metrics included.
+12,Reactivation dampening nonlinear effect unquantified,Fixed,Reactivation dampening percentage is now tracked monthly and summarized.
+13,Expansion insensitive to dynamics,Fixed,Expansion now responds to installed base composition and business maturity.
+14,Multi-cycle reactivation not addressed,Fixed,Repeat churn pools and repeat-reactivation logic added.
+15,Truncated reactivation windows,Fixed with limitation note,Forecast extended to 24 months and tail reactivation reserve disclosed for unresolved windows.
+16,No contraction / downgrade modeling,Fixed,Streaming promotional dilution and SaaS contraction ARR now explicitly modeled.
+17,No pricing sensitivity,Fixed,Dynamic ARPU/ARPA with price growth and promo periods added; scenarios include pricing variation.

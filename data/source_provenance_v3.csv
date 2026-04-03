@@ -1,0 +1,8 @@
+Element,Status,Methodology,URL
+Streaming voluntary reactivation curve,Sourced + interpolated,"Antenna cumulative voluntary resubscription points: 10% by month 1, 23% by month 3, 37% by month 9, 41% by month 12. Monthly rates are linearly interpolated between observed cumulative points.",https://www.antenna.live/insights/resubscription-is-on-the-rise
+Streaming involuntary recovery curve,Derived from sourced aggregate,"Recurly reports average decline-management efficiency of 69.4%. Monthly curve is derived to sum to 69.4% over 6 months: [35.0%, 15.0%, 9.0%, 5.0%, 3.0%, 2.4%].",https://recurly.com/research/subscriber-retention-benchmarks/
+Repeat reactivation handling,"Structural, not multiplier-based",No arbitrary repeat multipliers are used in v3. Any churn event re-enters the appropriate future reactivation pool under the same sourced/derived curve rules.,Model design choice
+SaaS churn anchors,Sourced,ChartMogul ARR / ARPA churn benchmarks supply base logo and revenue churn context.,https://chartmogul.com/reports/saas-benchmarks-report/
+SaaS expansion anchor,Sourced,High Alpha / OpenView provide SaaS expansion / growth composition context.,https://www.highalpha.com/saas-benchmarks/2024
+SaaS gross margin anchor,Sourced,KeyBanc / Sapphire provide SaaS gross margin context.,https://info.sapphireventures.com/2024-keybanc-capital-markets-and-sapphire-ventures-saas-survey
+SaaS CAC anchor,Sourced,Benchmark studies provide new-customer CAC ratio framing.,https://joinpavilion.com/hubfs/2024%20B2B%20SaaS%20Performance%20Metrics%20Benchmarks%20Report.pdf

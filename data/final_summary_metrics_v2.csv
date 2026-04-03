@@ -1,0 +1,17 @@
+Metric,Value
+Streaming confidence score,78.0
+SaaS confidence score,78.0
+Overall confidence score,78.0
+Original claim,88.0
+Audit floor / identified-risk view,52.0
+Corrected v2 score,78.0
+Streaming weighted ARPU,9.6
+Streaming leakage base,0.045
+Streaming Month24 Total MRR,22944.39
+Streaming Month24 ARR,275332.68
+SaaS archetype starting ARR,2000000.0
+SaaS Month24 ARR,2075990.16
+SaaS Month24 MRR,172999.18
+SaaS CLV/CAC mean,4.2
+SaaS CLV/CAC interval low,2.8
+SaaS CLV/CAC interval high,6.1

@@ -1,0 +1,10 @@
+Source_ID,Element,Status,Methodology,URL
+SRC01,Streaming weighted ARPU operators,Sourced,Primary operator disclosures above,Multiple operator filings
+SRC02,Streaming voluntary reactivation curve,Sourced + interpolated,Antenna cumulative points interpolated monthly,https://www.antenna.live/insights/resubscription-is-on-the-rise
+SRC03,Streaming involuntary recovery curve,Derived from sourced aggregate,Recurly aggregate decline-management efficiency converted into monthly recovery profile,https://recurly.com/research/subscriber-retention-benchmarks/
+SRC04,SaaS churn benchmark,Sourced,ChartMogul churn benchmarks by ARR/ARPA band,https://chartmogul.com/reports/saas-benchmarks-report/
+SRC05,SaaS expansion benchmark,Sourced,High Alpha / OpenView benchmark framing,https://www.highalpha.com/saas-benchmarks/2024
+SRC06,SaaS gross margin benchmark,Sourced,KeyBanc / Sapphire benchmark framing,https://info.sapphireventures.com/2024-keybanc-capital-markets-and-sapphire-ventures-saas-survey
+SRC07,SaaS CAC benchmark,Sourced,Pavilion / benchmark study new-customer CAC ratio framing,https://joinpavilion.com/hubfs/2024%20B2B%20SaaS%20Performance%20Metrics%20Benchmarks%20Report.pdf
+SRC08,Pricing elasticity assumptions,Derived assumption,"Explicit assumption, not directly observed; used to model price-change response",Internal derived assumption
+SRC09,Capacity and implementation throughput,Derived assumption,Explicit operational realism assumption for planning use,Internal derived assumption
