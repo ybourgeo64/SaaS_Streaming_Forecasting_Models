@@ -1,0 +1,94 @@
+Make corrections to the model and output based on this audit:
+
+
+I'll conduct a thorough due diligence audit by examining the model's core files, methodology, and outputs. Let me start by pulling the key documents.
+Now let me check the methodology guidance document for additional context:
+Now I have a comprehensive view of the entire model. Here is my independent due diligence audit.
+
+---
+
+### Assumptions Audit
+
+**1. Circular CLV/CAC Construction (CRITICAL — missed by prior audit)**
+CAC is *reverse-engineered* from CLV ÷ 3.6 to hit the benchmark target. This is not validation — it's tautological. The model claims CLV/CAC = 3.6 as a "validated" output, but it was *defined* to equal 3.6. There is zero independent information content in this metric. The prior audit accepted this as a legitimate improvement from 0.8 → 3.6 without flagging that the 3.6 is an input disguised as an output.
+
+**2. Constant Acquisition Rate (40/month) Is Unexamined**
+Net new subscriptions = 40/month is carried forward from the Kaggle legacy model with no independent validation, no seasonality, no decay, and no sensitivity to churn or market saturation. The model treats acquisition as exogenous and fixed while modeling everything downstream as dynamic. This creates a false stability floor — the model *cannot* show subscriber decline because acquisition never falters.
+
+**3. Billing Leakage Derivation Is Fragile**
+The 4.5% leakage is derived from: 15% of revenue exposed to declines × (1 − 69.4% recovery) ≈ 4.6%, rounded to 4.5%. But the Recurly source reports *median* figures across all subscription businesses. The actual leakage for a streaming-specific or SaaS-specific business could range from 2% to 8%+. The rounding from 4.6% to 4.5% is cosmetic but the ±3% uncertainty band is never disclosed.
+
+**4. Benchmark ARPU Averaging Is Methodologically Weak**
+Simple average of Netflix ($11.70), Disney+ ($7.20), and WBD ($7.44) = $8.78. These operators have radically different scale, maturity, content investment, and pricing power. Equal-weighting them is arbitrary. A subscriber-weighted average would yield ~$10+ (Netflix dominates by subscriber count). The choice of simple average systematically understates ARPU and therefore understates MRR, ARR, CLV, and all downstream metrics.
+
+**5. Expansion MRR Is Disconnected from the Subscriber Base**
+Expansion MRR = (Net New Subs × ACV × 0.40) ÷ 12 = constant $134.16/month. This means expansion is a function of *new* subscribers only, not the *installed base*. In reality, expansion revenue (upsells, tier upgrades, seat growth) scales with the existing customer pool, not just new arrivals. The model's expansion engine cannot grow even as the subscriber base stabilizes and grows.
+
+**6. Reactivation Curve Applied Without Cohort Decay Validation**
+The Antenna curve (10% → 23% → 41% cumulative) is from *streaming SVOD* aggregate data. It's applied uniformly to all churn cohorts regardless of churn reason, tenure, or segment. Involuntary churners (billing failures) have very different reactivation profiles than voluntary cancelers. The model treats all churn as homogeneous.
+
+---
+
+### Structural Risks
+
+**7. No Feedback Loops Between Components**
+The architecture diagram shows a linear flow: Acquisition → Retention → Expansion → Reactivation → Revenue Output. But in reality:
+- High churn should increase CAC (smaller addressable market, more aggressive acquisition needed)
+- Expansion should reduce net churn (stickier customers)
+- Reactivation should decay as the "easy win-back" pool depletes over multiple cycles
+- None of these feedback loops exist. The model is a feed-forward pipeline, not a system.
+
+**8. Gross Churn Rate Is Static**
+4.5% gross churn is applied identically every month regardless of subscriber mix changes. As reactivated subscribers re-enter the base, they are treated as having the same churn propensity as never-churned subscribers. In practice, reactivated customers churn at *higher* rates than retained customers (serial churner effect — the model's own sources cite 23% serial churner prevalence).
+
+**9. Seat Factor = 1.0 Is a Non-Factor**
+The seat factor is set to 1.0 and multiplied through ARPU and ACV calculations. At 1.0, it has zero analytical effect. It's documented as "editable" but in the current model it contributes nothing. The confidence score of 55 for Seats is generous — it should be flagged as "not modeled."
+
+**10. Beginning Subs for Month 1 (1,369.70) Is Unexplained**
+The monthly forecast starts with 1,369.70 beginning subscribers. This number is not derived from any documented source, benchmark, or calculation in the model files. It appears to be carried from the legacy Kaggle model without re-derivation or validation against the benchmark ARPU framework.
+
+---
+
+### Sensitivity Risks
+
+**11. Churn Rate Dominates Everything But Has Wide Uncertainty**
+The model uses 4.5% from a 2%–7% band. At 2% churn, the subscriber base would grow rapidly and MRR would compound upward. At 7%, the base would erode despite 40 new subs/month. The model presents only the midpoint with no scenario fan or confidence interval. A ±2.5% swing in churn rate would produce dramatically different 12-month outcomes.
+
+**12. Reactivation Amplifies Churn Sensitivity Non-Linearly**
+Higher churn → larger churn cohorts → more reactivations → partially offsetting the churn. This creates a dampening effect that makes the model appear more stable than it is. But it also means the model *understates* the impact of churn improvements (lower churn → fewer reactivations → less offset → the benefit of reducing churn is partially eaten by lost reactivation volume).
+
+**13. Expansion MRR Is Insensitive to All Other Variables**
+At a constant $134.16/month regardless of base size, churn, retention, or reactivation, expansion contributes a fixed dollar amount. This means expansion's *share* of total MRR increases as effective MRR declines — a perverse dynamic where the model looks healthier as the core business deteriorates.
+
+---
+
+### Edge Cases
+
+**14. Multi-Cycle Reactivation Is Not Addressed**
+What happens to a subscriber who reactivates in month 3, churns again in month 6, and is eligible for reactivation again? The model doesn't appear to track "second churn" cohorts separately. This could lead to double-counting reactivation potential or, conversely, understating it for repeat churners.
+
+**15. Month 12 Is Not Terminal**
+The model runs 12 months but the reactivation curve also spans 12 months. By month 12, only month-1 churn cohorts have had the full reactivation window. Months 2–12 churn cohorts have truncated reactivation horizons. The model's month-12 net churn rate (2.66%) is therefore artificially low relative to steady-state because early cohorts have had maximum reactivation time while later cohorts haven't.
+
+**16. Zero Downgrade / Contraction Modeling**
+The model includes expansion but no contraction. In SaaS, net revenue retention includes both expansion *and* contraction (downgrades, seat removals). The 40% expansion benchmark from OpenView is a *gross* expansion figure that exists alongside contraction. Omitting contraction overstates net expansion impact.
+
+**17. No Pricing Sensitivity**
+ARPU is fixed at $8.78 (benchmark average). There is no mechanism for price changes, promotional periods, or ad-tier migration — all of which are major revenue drivers in streaming (Netflix's own ARPU growth was 8.1% YoY from tier migration alone).
+
+---
+
+### Confidence Score: **52 / 100**
+
+### Justification
+
+| Dimension | Score | Rationale |
+|---|---|---|
+| Source quality & transparency | 75 | Genuine improvement over Kaggle-only; sources are real and cited |
+| Logical consistency | 40 | Circular CLV/CAC, disconnected expansion, static churn, no feedback loops |
+| Completeness | 45 | Missing contraction, pricing dynamics, cohort heterogeneity, multi-cycle reactivation |
+| Sensitivity & robustness | 35 | Single-point estimates throughout; no scenario bands; churn sensitivity unquantified |
+| Predictive validity | 30 | No out-of-sample validation; benchmarks used as inputs, not validation targets |
+| Auditability of outputs | 65 | Formulas documented; monthly table reproducible; but starting conditions unexplained |
+
+The model's self-assessed confidence of 88 is **overstated by ~35 points**. The prior audit's primary failure was accepting benchmark substitution as equivalent to validation. Replacing fabricated numbers with benchmark numbers is an improvement in *sourcing* but not in *structural soundness*. The model now has better-sourced inputs feeding into the same feed-forward, single-scenario, no-feedback architecture — which means it produces more credible-*looking* outputs that are no more robust to real-world dynamics than before.

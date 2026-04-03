@@ -1,0 +1,89 @@
+Make corrections to the models based on this audit:
+
+
+I'll conduct a deep audit of both models by examining the key data files and reports. Let me start by reviewing the critical artifacts.
+This is a critical finding. Let me verify it more carefully.
+Now I have a thorough understanding of both models. Let me check one more critical file.
+Now I have a comprehensive view. Here is the deep audit.
+
+---
+
+### CRITICAL AUDIT FINDINGS — Issues the Previous Audit Missed
+
+---
+
+### 1. Assumptions Audit
+
+**🔴 CRITICAL: Fabricated CLV/CAC Monte Carlo Output**
+The code explicitly hardcodes `ratio_summary = {'Mean':4.2,'P05':2.8,'P95':6.1}` *after* running a Monte Carlo that produces a completely different distribution. The actual Monte Carlo uses `np.random.triangular(42000, 56000, 72000)` for CLV and `np.random.triangular(9000, 13000, 17000)` for CAC — these triangular inputs were chosen specifically to reverse-engineer the desired 4.2x output. Meanwhile, `saas_clv_cac_uncertainty.csv` (the earlier model artifact) shows a **real** CLV/CAC mean of **1.28x** with a P95 of only 1.46x. The reported 4.2x is fabricated presentation, not model output. This is the single most damaging finding.
+
+**🔴 SaaS Scenarios Table Is Insensitive to Churn**
+In `saas_scenarios.csv`, changing logo churn from 1.0% to 1.3% to 1.6% produces **identical** Month24 ARR, MRR, Avg Retention, and Avg NRR across all rows at the same price level. The churn input has zero effect on any output. This means either the scenario generator is broken or churn is being overridden by the target-ARR bridge logic (see below).
+
+**🔴 SaaS New-Logo ARR Is Target-Backed, Not Driver-Based**
+The code computes `new_logo_arr = max(12000.0, target_end_arr - (beginning_arr_after_retention + reactivated_arr + net_expansion_arr))`. This means new-logo acquisition is a **plug number** — whatever ARR the model needs to hit its growth target, it manufactures the required new logos. This is the exact circular/tautological pattern the audit claimed to fix. The model cannot fail to grow because acquisition absorbs all shortfalls.
+
+**🟡 Streaming Churn Rates Are Static Constants, Not Dynamic**
+Despite claiming "dynamic cohort-specific churn rates," the code uses hardcoded constants: `churn_new = 0.045`, `churn_ret = 0.038`, `churn_rea = 0.072` every single month. They never change based on system state, pricing pressure, competitive dynamics, or maturity. The "cohort-specific" label is accurate but "dynamic" is misleading.
+
+**🟡 Reactivation Curve Provenance Is Weak**
+The voluntary curve sums to ~41% cumulative over 12 months, which the model attributes to Antenna's "10% → 23% → 37% → 41%" insight. But the monthly rate decomposition (10%, 6.5%, 6.5%, then 2.33% × 6, then 1.33% × 3) is an interpolation, not a directly sourced curve. The involuntary curve (45%, 15%, 7%, 2.4%) has no named source at all — it's fabricated with a plausible-sounding decay.
+
+**🟡 Repeat Reactivation Scaling Factors Are Arbitrary**
+In the SaaS model, reactivation multipliers are `0.30` (voluntary), `0.55` (involuntary), `0.18` (repeat). In streaming, the repeat multiplier is `0.30`. These are presented as model parameters but have no cited benchmark basis.
+
+---
+
+### 2. Structural Risks
+
+**🔴 SaaS Ending ARR Double-Counts Expansion**
+`Ending ARR = Ending Customers × ARPA × 12 + Net Expansion ARR`. But `Ending Customers` already includes reactivated customers who contribute to the customer-count-based ARR. Net Expansion ARR is then added on top. If expansion partially reflects the same revenue that reactivated customers bring, there's a structural overlap. The formula conflates per-customer ARR (which should already include expansion for existing accounts) with a separate expansion add-on.
+
+**🔴 Sensitivity Analysis Is Cosmetic, Not Structural**
+The streaming sensitivity table applies multipliers *post-hoc* to the base model's outputs: `adj_total_mrr = df['Rate Card MRR']*(1-leak) + (df['Net Expansion MRR']*price_mult)`. It does **not** re-run the model with different assumptions. This means feedback loops, reactivation dynamics, and acquisition pressure — the model's claimed strengths — are completely absent from the sensitivity analysis. The scenarios are linear scaling of a single run, not true scenario modeling.
+
+**🟡 Streaming Subscriber Ending-State Accounting Error**
+The code sets `ending_retained = max(beginning - gross_churn, 0)` but `ending_subs = ending_new + ending_reactivated + ending_retained`. This means reactivated subscribers are counted in `ending_subs` but were *not* subtracted from the churn that reduced `ending_retained`. The beginning-to-ending bridge doesn't balance: `ending_subs ≠ beginning - gross_churn + new_adds + reactivations` because `ending_retained` already absorbed the full gross churn without crediting reactivations back.
+
+**🟡 No Cohort Aging or Graduation Logic**
+New subscribers remain "active_new" for exactly one month, then become "active_retained" forever. There's no intermediate maturation. A subscriber who has been retained for 23 months has the same churn rate as one retained for 1 month. This flattens the retention curve unrealistically.
+
+---
+
+### 3. Sensitivity Risks
+
+**🔴 SaaS Model Is Structurally Insensitive to Churn by Design**
+Because new-logo ARR is a plug number targeting a growth rate, increasing churn simply increases the required new-logo acquisition. The model self-heals. This makes the sensitivity analysis meaningless for churn — the model literally cannot show churn-driven ARR decline unless churn exceeds the growth target *and* the 12,000 floor simultaneously.
+
+**🟡 Streaming Sensitivity Range Is Paradoxically Narrow**
+The Low scenario (less leakage, less churn, less expansion) produces *higher* MRR than the High scenario (more leakage, more churn, *more* expansion). The expansion multiplier in the High case should push MRR up, but leakage and churn dominate. The net spread is only ~6% ($265K–$282K ARR). For a model with 24-month horizon and benchmark-only inputs, this range is implausibly tight.
+
+**🟡 No Macro or Competitive Sensitivity**
+Neither model includes recession, competitive entry, regulatory, or market-saturation scenarios. The streaming model's `growth_taper = 0.985` is a gentle exponential decay that never reaches zero or negative territory. There is no mechanism for subscriber decline.
+
+---
+
+### 4. Edge Cases
+
+- **Month 1 streaming has zero reactivations by construction** (no prior churn pool exists), but the model still reports a net churn rate of 3.9% — the highest in the series. This creates a misleading first-month impression if used for period-over-period comparison.
+- **SaaS new-logo floor of $12,000/month** means the model can never show organic contraction even if retention, expansion, and reactivation all collapse. The floor acts as an invisible subsidy.
+- **Promotional months (1, 7, 13, 19)** create ARPU dips via `-0.010` promo drag in streaming and `-0.003` in SaaS, but these are hardcoded calendar positions with no market justification. If the model were shifted by one month, the promotional pattern would be different.
+- **Involuntary reactivation curve drops to zero after month 4**, meaning all involuntary churn that hasn't recovered in 4 months is permanently lost. This is aggressive — billing retry and dunning systems often recover accounts over 6+ months.
+- **The `saas_clv_cac_uncertainty.csv` file shows CLV/CAC of 1.28x** while the report claims 4.2x. If a reviewer cross-references the CSV against the report, the discrepancy is immediately visible and destroys credibility.
+
+---
+
+### 5. Confidence Score
+
+**Adjusted Confidence: 38 / 100**
+
+| Dimension | Score | Rationale |
+|---|---|---|
+| Structural integrity | 45 | State-transition framework is sound in concept but plug-number acquisition and post-hoc sensitivity undermine it |
+| Assumption quality | 30 | Fabricated CLV/CAC, unsourced reactivation curves, static "dynamic" churn |
+| Output reliability | 25 | SaaS scenarios show zero churn sensitivity; streaming sensitivity is cosmetic scaling |
+| Transparency / honesty | 35 | CLV/CAC hardcode override is a material misrepresentation; CSV artifacts contradict report claims |
+| Documentation quality | 65 | Reports are well-structured and readable, but document claims the model doesn't actually deliver |
+| **Overall** | **38** | The model's narrative is stronger than its mechanics. The previous audit's 78/100 score failed to inspect the code and cross-reference CSV artifacts against report claims. |
+
+**Justification:** The model presents a sophisticated narrative about connected driver systems, but the implementation contains a fabricated Monte Carlo output, a target-backed acquisition plug that neutralizes churn sensitivity, and sensitivity analysis that doesn't re-run the model. These are not minor calibration issues — they are structural integrity failures that the previous audit missed because it evaluated the documentation rather than the mechanics.
