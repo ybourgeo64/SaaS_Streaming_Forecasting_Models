@@ -1,4 +1,5 @@
-# SaaS_Streaming_Forecasting_Models
+SaaS Streaming Forecasting Models
+
 These revenue driver models are practical forecasting tools designed to show how recurring revenue is created, protected, and expanded over time. Rather than starting with a top-line revenue number and working backward, the models begin with the underlying drivers of recurring revenue: acquisition, retention, expansion, reactivation, pricing, capacity, and timing. The result is a forecast that is easier to explain, challenge, and update as conditions change.
 
 The central forecasting thesis behind the models is simple: revenue behaves like a connected system. New customers or subscribers enter the system through acquisition. Some renew, some churn, some expand, and some return through reactivation. Pricing changes can increase monetization but also increase churn or reduce conversion. Capacity bottlenecks can slow growth even when demand exists. Because these effects interact, no single metric tells the full story. Connected driver forecasting matters because it preserves those cause-and-effect relationships.
