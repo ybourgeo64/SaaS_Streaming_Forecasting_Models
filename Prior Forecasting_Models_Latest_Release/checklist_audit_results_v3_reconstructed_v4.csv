@@ -1,0 +1,119 @@
+section,check_id,model_domain,status,evidence,risk_note,proposed_fix
+1. Assumptions Audit,A1,SaaS,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+1. Assumptions Audit,A1,Streaming,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+1. Assumptions Audit,A2,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A2,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A3,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A3,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A4,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A4,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A5,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A5,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A6,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A6,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A7,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+1. Assumptions Audit,A7,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S1,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S1,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S2,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S2,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S3,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+2. Structural Risks,S3,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+2. Structural Risks,S4,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S4,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S5,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+2. Structural Risks,S5,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+2. Structural Risks,S6,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+2. Structural Risks,S6,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+2. Structural Risks,S7,SaaS,❌ Fail,v3 SaaS lacked explicit sales-cycle and onboarding lag.,Revenue timing overly optimistic.,v4 adds pipeline close lag and onboarding lag.
+2. Structural Risks,S7,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+2. Structural Risks,S8,SaaS,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+2. Structural Risks,S8,Streaming,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+3. Sensitivity Risks,R1,SaaS,❌ Fail,v3 did not rank dominant drivers or attribute output swings.,Management may focus on the wrong levers.,v4 adds dominant-driver tables and scenario decomposition.
+3. Sensitivity Risks,R1,Streaming,❌ Fail,v3 did not rank dominant drivers or attribute output swings.,Management may focus on the wrong levers.,v4 adds dominant-driver tables and scenario decomposition.
+3. Sensitivity Risks,R2,SaaS,❌ Fail,v3 did not rank dominant drivers or attribute output swings.,Management may focus on the wrong levers.,v4 adds dominant-driver tables and scenario decomposition.
+3. Sensitivity Risks,R2,Streaming,❌ Fail,v3 did not rank dominant drivers or attribute output swings.,Management may focus on the wrong levers.,v4 adds dominant-driver tables and scenario decomposition.
+3. Sensitivity Risks,R3,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+3. Sensitivity Risks,R3,Streaming,⚠️ Partial,v3 had scenarios but no richer uncertainty framing.,Point estimate overuse.,v4 adds expanded stress and uncertainty presentation.
+3. Sensitivity Risks,R4,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+3. Sensitivity Risks,R4,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+3. Sensitivity Risks,R5,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+3. Sensitivity Risks,R5,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+3. Sensitivity Risks,R6,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+3. Sensitivity Risks,R6,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+4. Data & Input Integrity,D1,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+4. Data & Input Integrity,D1,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+4. Data & Input Integrity,D2,SaaS,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+4. Data & Input Integrity,D2,Streaming,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+4. Data & Input Integrity,D3,SaaS,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+4. Data & Input Integrity,D3,Streaming,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+4. Data & Input Integrity,D4,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+4. Data & Input Integrity,D4,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+4. Data & Input Integrity,D5,SaaS,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+4. Data & Input Integrity,D5,Streaming,❌ Fail,v3 lacked centralized parameter registry / override log / full source mapping.,Governance and auditability risk.,"v4 adds parameter registry, source IDs, manual override log, and driver type classification."
+4. Data & Input Integrity,D6,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+4. Data & Input Integrity,D6,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+5. Business Reality Alignment,B1,SaaS,❌ Fail,v3 SaaS lacked sales and implementation capacity / bottlenecks.,Growth could exceed operational reality.,v4 adds sales capacity and implementation throughput constraints.
+5. Business Reality Alignment,B1,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+5. Business Reality Alignment,B2,SaaS,❌ Fail,v3 SaaS lacked explicit sales-cycle and onboarding lag.,Revenue timing overly optimistic.,v4 adds pipeline close lag and onboarding lag.
+5. Business Reality Alignment,B2,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+5. Business Reality Alignment,B3,SaaS,❌ Fail,v3 SaaS smoothed enterprise timing.,Monthly forecast too smooth.,v4 adds deterministic enterprise lumpiness.
+5. Business Reality Alignment,B3,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+5. Business Reality Alignment,B4,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+5. Business Reality Alignment,B4,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+5. Business Reality Alignment,B5,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+5. Business Reality Alignment,B5,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+5. Business Reality Alignment,B6,SaaS,❌ Fail,v3 SaaS lacked sales and implementation capacity / bottlenecks.,Growth could exceed operational reality.,v4 adds sales capacity and implementation throughput constraints.
+5. Business Reality Alignment,B6,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+6. Dependency & Systemic Risk,Y1,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+6. Dependency & Systemic Risk,Y1,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+6. Dependency & Systemic Risk,Y2,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+6. Dependency & Systemic Risk,Y2,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+6. Dependency & Systemic Risk,Y3,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+6. Dependency & Systemic Risk,Y3,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+6. Dependency & Systemic Risk,Y4,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+6. Dependency & Systemic Risk,Y4,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+6. Dependency & Systemic Risk,Y5,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+6. Dependency & Systemic Risk,Y5,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+7. Edge Cases & Failure Modes,E1,SaaS,❌ Fail,v3 lacked concentration stress.,Top-customer churn invisible.,v4 adds top-customer loss scenario.
+7. Edge Cases & Failure Modes,E1,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+7. Edge Cases & Failure Modes,E2,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+7. Edge Cases & Failure Modes,E2,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+7. Edge Cases & Failure Modes,E3,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+7. Edge Cases & Failure Modes,E3,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+7. Edge Cases & Failure Modes,E4,SaaS,⚠️ Partial,v3 lacked isolated failed-price and extreme stress scenarios.,Tail downside understated.,v4 adds failed-price and stress scenarios.
+7. Edge Cases & Failure Modes,E4,Streaming,⚠️ Partial,v3 lacked isolated failed-price and extreme stress scenarios.,Tail downside understated.,v4 adds failed-price and stress scenarios.
+7. Edge Cases & Failure Modes,E5,SaaS,⚠️ Partial,v3 lacked isolated failed-price and extreme stress scenarios.,Tail downside understated.,v4 adds failed-price and stress scenarios.
+7. Edge Cases & Failure Modes,E5,Streaming,⚠️ Partial,v3 lacked isolated failed-price and extreme stress scenarios.,Tail downside understated.,v4 adds failed-price and stress scenarios.
+7. Edge Cases & Failure Modes,E6,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+7. Edge Cases & Failure Modes,E6,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+8. Output Risk & Interpretation,O1,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+8. Output Risk & Interpretation,O1,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+8. Output Risk & Interpretation,O2,SaaS,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+8. Output Risk & Interpretation,O2,Streaming,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+8. Output Risk & Interpretation,O3,SaaS,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+8. Output Risk & Interpretation,O3,Streaming,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+8. Output Risk & Interpretation,O4,SaaS,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+8. Output Risk & Interpretation,O4,Streaming,⚠️ Partial,v3 addressed the area but incompletely.,Residual realism risk.,v4 improves but does not fully eliminate benchmark-model limits.
+8. Output Risk & Interpretation,O5,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+8. Output Risk & Interpretation,O5,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+9. Model Purpose & Bias,P1,SaaS,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+9. Model Purpose & Bias,P1,Streaming,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+9. Model Purpose & Bias,P2,SaaS,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+9. Model Purpose & Bias,P2,Streaming,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+9. Model Purpose & Bias,P3,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+9. Model Purpose & Bias,P3,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+9. Model Purpose & Bias,P4,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+9. Model Purpose & Bias,P4,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+9. Model Purpose & Bias,P5,SaaS,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+9. Model Purpose & Bias,P5,Streaming,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+10. Unit Economics Consistency,U1,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+10. Unit Economics Consistency,U1,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+10. Unit Economics Consistency,U2,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+10. Unit Economics Consistency,U2,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+10. Unit Economics Consistency,U3,SaaS,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+10. Unit Economics Consistency,U3,Streaming,✅ Pass,v3 baseline was materially adequate on this check.,,Maintain.
+10. Unit Economics Consistency,U4,SaaS,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+10. Unit Economics Consistency,U4,Streaming,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+10. Unit Economics Consistency,U5,SaaS,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."
+10. Unit Economics Consistency,U5,Streaming,⚠️ Partial,v3 disclosed uncertainty and purpose but not strongly enough.,Misinterpretation / optimism risk.,"v4 strengthens purpose statement, uncertainty banners, and efficiency checks."

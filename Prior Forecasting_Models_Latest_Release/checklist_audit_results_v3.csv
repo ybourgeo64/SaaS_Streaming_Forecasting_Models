@@ -1,0 +1,119 @@
+section,check_id,model_domain,status,evidence,risk_note,proposed_fix
+1. Assumptions Audit,A1,SaaS,⚠️ Partial,"Assumptions sheet exists in workbook, but several scenario modifiers and curve scalars remain code-level rather than fully centralized.",Hidden assumptions reduce auditability.,Centralize all assumptions and scenario modifiers in workbook/data tables and generated assumption logs.
+1. Assumptions Audit,A2,SaaS,✅ Pass,v3 code and reports describe explicit bridges and causal flow.,,Maintain causal diagrams and bridge tables.
+1. Assumptions Audit,A3,SaaS,⚠️ Partial,"Source provenance exists, but some derived assumptions (e.g. SaaS reactivation downscale) lack deeper historical basis.",Historical dependency weakness can distort realism.,Add explicit assumption provenance table with derived-vs-sourced labels and rationale.
+1. Assumptions Audit,A4,SaaS,⚠️ Partial,Pricing and CAC policies are mixed with market effects in scenario params.,Management action not isolated.,Split controllable vs uncontrollable drivers.
+1. Assumptions Audit,A5,SaaS,✅ Pass,No obvious identity contradictions in v3 core outputs.,,
+1. Assumptions Audit,A6,SaaS,⚠️ Partial,Some reports still use many decimals in outputs/means and scenario tables.,False precision in executive interpretation.,Round outputs and label estimates as benchmark-calibrated ranges.
+1. Assumptions Audit,A7,SaaS,✅ Pass,Actual CLV/CAC reported as 1.40x rather than tuned upward.,,
+2. Structural Risks,S1,SaaS,✅ Pass,No circular formulas detected in v3 bridges.,,
+2. Structural Risks,S2,SaaS,✅ Pass,Outputs are no longer target-plugged.,,
+2. Structural Risks,S3,SaaS,⚠️ Partial,"Some nonlinearity exists via cohort aging and scenario shifts, but not enough around capacity, price elasticity, or step-change effects.",Model may understate threshold behavior.,"Add explicit non-linear functions for capacity, pricing elasticity, and sales productivity saturation."
+2. Structural Risks,S4,SaaS,✅ Pass,Streaming bridge check passes; SaaS ARR bridge explicit.,,
+2. Structural Risks,S5,SaaS,⚠️ Partial,"Bottom-up cohort logic exists, but top-down benchmark totals are not routinely reconciled to external scaling bands.",Local coherence without macro plausibility checks.,Add top-down sanity checks and scaling guardrails.
+2. Structural Risks,S6,SaaS,⚠️ Partial,"Cohort aging exists, but top customer concentration / segment cohorts are not modeled.",Aggregation hides concentration risk.,Add segment/concentration cohorts.
+2. Structural Risks,S7,SaaS,❌ Fail,No explicit sales cycle or onboarding lag in v3 SaaS acquisition-to-revenue conversion.,Revenue recognized too quickly versus real GTM behavior.,Add pipeline-to-bookings lag and onboarding ramp.
+2. Structural Risks,S8,SaaS,⚠️ Partial,"Some hardcoded base rates remain in code (e.g., 0.036 streaming base churn, 0.0115 SaaS base churn).",Hardcoded logic limits reuse and governance.,Move to parameter tables.
+3. Sensitivity Risks,R1,SaaS,❌ Fail,Dominant drivers are not explicitly ranked or quantified in v3 outputs.,Decision-makers may focus on the wrong levers.,Add driver importance / tornado analysis.
+3. Sensitivity Risks,R2,SaaS,⚠️ Partial,"Scenarios exist, but output swing attribution is not decomposed.",Large swings not explained.,Add contribution-to-change decomposition.
+3. Sensitivity Risks,R3,SaaS,✅ Pass,Monte Carlo uncertainty exists for CLV/CAC.,,
+3. Sensitivity Risks,R4,SaaS,⚠️ Partial,"Scenarios bundle correlated risks qualitatively, but no explicit correlation matrix or joint shock documentation.",Underestimates compound downside.,Add correlated scenario matrix.
+3. Sensitivity Risks,R5,SaaS,⚠️ Partial,Ranges are useful but still somewhat narrow for severe shocks.,Downside not wide enough.,Add extreme stress scenarios.
+3. Sensitivity Risks,R6,SaaS,⚠️ Partial,"Some nonlinearities included, but not sensitivity cliffs.",Missed tipping points.,Add elasticity and breakpoint testing.
+4. Data & Input Integrity,D1,SaaS,⚠️ Partial,"Sources are cited, but some URLs are high-level pages and some derived assumptions are not separately versioned.",Input validation trail incomplete.,Add source snapshot table and citation type field.
+4. Data & Input Integrity,D2,SaaS,❌ Fail,No dedicated manual override log in v3.,Undocumented overrides or edits may go unnoticed.,Add manual overrides sheet/log.
+4. Data & Input Integrity,D3,SaaS,⚠️ Partial,"There is some audit trail via CSVs and reports, but not a line-by-line source-to-parameter map for every assumption.",Harder to audit assumptions.,Add parameter registry and provenance IDs.
+4. Data & Input Integrity,D4,SaaS,⚠️ Partial,"Anomaly handling discussed, but no formal anomaly controls or one-off flags.",One-off benchmarks may bias base rates.,Add anomaly flag fields and exclusion rationale.
+4. Data & Input Integrity,D5,SaaS,⚠️ Partial,"Behavior vs intervention partly separated, not explicit everywhere.",Wrong attribution of outcomes.,"Separate environmental, policy, and behavioral parameters."
+4. Data & Input Integrity,D6,SaaS,⚠️ Partial,"Some benchmark outputs may still influence inputs indirectly (e.g., CAC framing from mature benchmarks applied as base input).",Lagging benchmarks used too directly.,Tag lagging benchmarks and reduce direct use as leading assumptions.
+5. Business Reality Alignment,B1,SaaS,❌ Fail,No sales-team or onboarding capacity constraint in SaaS.,Growth can outpace operational reality.,Add sales capacity and implementation throughput constraints.
+5. Business Reality Alignment,B2,SaaS,❌ Fail,No explicit sales cycle / onboarding delay for SaaS and only limited timing for streaming.,Revenue timing too optimistic.,Add pipeline and onboarding lag mechanics.
+5. Business Reality Alignment,B3,SaaS,❌ Fail,No enterprise deal lumpiness modeled.,Monthly forecast too smooth.,Add stochastic or scenario-based lumpiness.
+5. Business Reality Alignment,B4,SaaS,⚠️ Partial,"Customer behavior dynamic exists, team behavior does not.",Operational adaptation missing.,Add productivity / service response effects.
+5. Business Reality Alignment,B5,SaaS,⚠️ Partial,"Price pressure affects churn, but explicit elasticity calibration is limited.",Weak pricing response realism.,Add price elasticity parameterization.
+5. Business Reality Alignment,B6,SaaS,❌ Fail,No explicit operational bottleneck variables.,Forecast ignores execution ceilings.,Add capacity / staffing / support bottleneck variables.
+6. Dependency & Systemic Risk,Y1,SaaS,⚠️ Partial,"Macro shock and competition act as root factors, but dependency map is not explicit.",Same root factor may be counted inconsistently.,Add dependency map sheet.
+6. Dependency & Systemic Risk,Y2,SaaS,✅ Pass,Driver interdependencies are modeled in v3.,,
+6. Dependency & Systemic Risk,Y3,SaaS,⚠️ Partial,Correlated risks are scenario-bundled but not quantified.,Systemic downside understated.,Add joint-shock table/correlation matrix.
+6. Dependency & Systemic Risk,Y4,SaaS,✅ Pass,"Feedback loops exist for saturation, pressure, pricing/churn interactions.",,
+6. Dependency & Systemic Risk,Y5,SaaS,✅ Pass,"Growth, recession, competition, saturation regimes included.",,
+7. Edge Cases & Failure Modes,E1,SaaS,❌ Fail,No top-customer concentration layer.,Largest-customer churn impact invisible.,Add concentration stress module.
+7. Edge Cases & Failure Modes,E2,SaaS,⚠️ Partial,Acquisition miss appears through scenarios but not explicit deal slippage module.,Missed timing shocks not isolated.,Add slippage scenario and lag buckets.
+7. Edge Cases & Failure Modes,E3,SaaS,✅ Pass,Recession/competition/saturation materially slow growth.,,
+7. Edge Cases & Failure Modes,E4,SaaS,⚠️ Partial,Pricing failure not isolated from macro/competition.,Cannot isolate pricing experiment risk.,Add failed-price-increase scenario.
+7. Edge Cases & Failure Modes,E5,SaaS,⚠️ Partial,Stress scenarios exist but not truly extreme tail cases.,Black-swan downside understated.,Add severe stress tests.
+7. Edge Cases & Failure Modes,E6,SaaS,✅ Pass,Model remains logical under tested scenarios; no bridge breaks.,,
+8. Output Risk & Interpretation,O1,SaaS,⚠️ Partial,Some outputs still over-decimalized.,False precision.,Round executive outputs.
+8. Output Risk & Interpretation,O2,SaaS,⚠️ Partial,Ranges exist but not consistently front-and-center for both domains.,Users may over-read point estimates.,Lead with ranges and bands in reports/dashboard.
+8. Output Risk & Interpretation,O3,SaaS,⚠️ Partial,"Reports warn about uncertainty, but workbook dashboard still foregrounds point estimates.",Deterministic misuse.,Add uncertainty banners and scenario comparison summary.
+8. Output Risk & Interpretation,O4,SaaS,⚠️ Partial,"Some volatility through scenarios, not enough intra-scenario volatility/lumpiness.",Too smooth.,Add controlled volatility/lumpiness.
+8. Output Risk & Interpretation,O5,SaaS,✅ Pass,Drivers are reasonably explainable in v3 reports.,,
+9. Model Purpose & Bias,P1,SaaS,⚠️ Partial,"Purpose is described as planning/forecasting, but target-setting boundaries are not explicit enough.",Misuse as quota/commit target.,Add explicit intended-use statement.
+9. Model Purpose & Bias,P2,SaaS,⚠️ Partial,Assumptions are mostly planning-oriented but some benchmark norms may be read as targets.,Normative benchmark bias.,Separate benchmark reference from target assumptions.
+9. Model Purpose & Bias,P3,SaaS,✅ Pass,v3 accepts weak CLV/CAC and downside scenarios.,,
+9. Model Purpose & Bias,P4,SaaS,✅ Pass,Downside cases represented.,,
+9. Model Purpose & Bias,P5,SaaS,⚠️ Partial,Base case may still be optimistic because operational bottlenecks absent.,Slight optimism bias.,Add bottleneck and delay realism.
+10. Unit Economics Consistency,U1,SaaS,⚠️ Partial,"Actual CLV/CAC is 1.40x and coherent numerically, but still benchmark-dependent and weak economically.",Unit economics may be unattractive or unstable.,Add payback and margin/cohort validation.
+10. Unit Economics Consistency,U2,SaaS,✅ Pass,Expansion tied to retained / installed base.,,
+10. Unit Economics Consistency,U3,SaaS,✅ Pass,Growth slows in high-churn and recession scenarios.,,
+10. Unit Economics Consistency,U4,SaaS,⚠️ Partial,Gross margin anchored to benchmarks but not dynamic with scale.,Margin realism limited.,Add modest scale-vs-margin function.
+10. Unit Economics Consistency,U5,SaaS,⚠️ Partial,"Growth and efficiency can diverge logically, but no explicit payback check exists.",Possible hidden contradiction.,Add CAC payback and Rule-of-40-like checks.
+1. Assumptions Audit,A1,Streaming,⚠️ Partial,"Assumptions sheet exists in workbook, but several scenario modifiers and curve scalars remain code-level rather than fully centralized.",Hidden assumptions reduce auditability.,Centralize all assumptions and scenario modifiers in workbook/data tables and generated assumption logs.
+1. Assumptions Audit,A2,Streaming,✅ Pass,v3 code and reports describe explicit bridges and causal flow.,,Maintain causal diagrams and bridge tables.
+1. Assumptions Audit,A3,Streaming,⚠️ Partial,"Source provenance exists, but some derived assumptions (e.g. SaaS reactivation downscale) lack deeper historical basis.",Historical dependency weakness can distort realism.,Add explicit assumption provenance table with derived-vs-sourced labels and rationale.
+1. Assumptions Audit,A4,Streaming,⚠️ Partial,"Competition, macro shock, and price drag are scenario parameters but not always labeled as interventions vs environment.",Mixing exogenous and management levers can confuse decisions.,Separate environment variables from management-policy levers.
+1. Assumptions Audit,A5,Streaming,✅ Pass,No obvious identity contradictions in v3 core outputs.,,
+1. Assumptions Audit,A6,Streaming,⚠️ Partial,Some reports still use many decimals in outputs/means and scenario tables.,False precision in executive interpretation.,Round outputs and label estimates as benchmark-calibrated ranges.
+1. Assumptions Audit,A7,Streaming,✅ Pass,Downside scenarios are included and materially worse than base.,,
+2. Structural Risks,S1,Streaming,✅ Pass,No circular formulas detected in v3 bridges.,,
+2. Structural Risks,S2,Streaming,✅ Pass,Outputs are no longer target-plugged.,,
+2. Structural Risks,S3,Streaming,⚠️ Partial,"Some nonlinearity exists via cohort aging and scenario shifts, but not enough around capacity, price elasticity, or step-change effects.",Model may understate threshold behavior.,"Add explicit non-linear functions for capacity, pricing elasticity, and sales productivity saturation."
+2. Structural Risks,S4,Streaming,✅ Pass,Streaming bridge check passes; SaaS ARR bridge explicit.,,
+2. Structural Risks,S5,Streaming,⚠️ Partial,"Bottom-up cohort logic exists, but top-down benchmark totals are not routinely reconciled to external scaling bands.",Local coherence without macro plausibility checks.,Add top-down sanity checks and scaling guardrails.
+2. Structural Risks,S6,Streaming,⚠️ Partial,"Cohort aging exists, but top customer concentration / segment cohorts are not modeled.",Aggregation hides concentration risk.,Add segment/concentration cohorts.
+2. Structural Risks,S7,Streaming,⚠️ Partial,Streaming has reactivation timing but no explicit billing delay or campaign lag.,Timing still simplified.,Add acquisition/retention intervention lag structure.
+2. Structural Risks,S8,Streaming,⚠️ Partial,"Some hardcoded base rates remain in code (e.g., 0.036 streaming base churn, 0.0115 SaaS base churn).",Hardcoded logic limits reuse and governance.,Move to parameter tables.
+3. Sensitivity Risks,R1,Streaming,❌ Fail,Dominant drivers are not explicitly ranked or quantified in v3 outputs.,Decision-makers may focus on the wrong levers.,Add driver importance / tornado analysis.
+3. Sensitivity Risks,R2,Streaming,⚠️ Partial,"Scenarios exist, but output swing attribution is not decomposed.",Large swings not explained.,Add contribution-to-change decomposition.
+3. Sensitivity Risks,R3,Streaming,⚠️ Partial,Streaming uses scenario ranges but lacks quantified distribution / fan probabilities.,Under-communicated uncertainty.,Add wider uncertainty tables and driver bands.
+3. Sensitivity Risks,R4,Streaming,⚠️ Partial,"Scenarios bundle correlated risks qualitatively, but no explicit correlation matrix or joint shock documentation.",Underestimates compound downside.,Add correlated scenario matrix.
+3. Sensitivity Risks,R5,Streaming,⚠️ Partial,Ranges are useful but still somewhat narrow for severe shocks.,Downside not wide enough.,Add extreme stress scenarios.
+3. Sensitivity Risks,R6,Streaming,⚠️ Partial,"Some nonlinearities included, but not sensitivity cliffs.",Missed tipping points.,Add elasticity and breakpoint testing.
+4. Data & Input Integrity,D1,Streaming,⚠️ Partial,"Sources are cited, but some URLs are high-level pages and some derived assumptions are not separately versioned.",Input validation trail incomplete.,Add source snapshot table and citation type field.
+4. Data & Input Integrity,D2,Streaming,❌ Fail,No dedicated manual override log in v3.,Undocumented overrides or edits may go unnoticed.,Add manual overrides sheet/log.
+4. Data & Input Integrity,D3,Streaming,⚠️ Partial,"There is some audit trail via CSVs and reports, but not a line-by-line source-to-parameter map for every assumption.",Harder to audit assumptions.,Add parameter registry and provenance IDs.
+4. Data & Input Integrity,D4,Streaming,⚠️ Partial,"Anomaly handling discussed, but no formal anomaly controls or one-off flags.",One-off benchmarks may bias base rates.,Add anomaly flag fields and exclusion rationale.
+4. Data & Input Integrity,D5,Streaming,⚠️ Partial,"Behavior vs intervention partly separated, not explicit everywhere.",Wrong attribution of outcomes.,"Separate environmental, policy, and behavioral parameters."
+4. Data & Input Integrity,D6,Streaming,⚠️ Partial,"Some benchmark outputs may still influence inputs indirectly (e.g., CAC framing from mature benchmarks applied as base input).",Lagging benchmarks used too directly.,Tag lagging benchmarks and reduce direct use as leading assumptions.
+5. Business Reality Alignment,B1,Streaming,⚠️ Partial,Saturation via market capacity multiplier exists.,Capacity is crude and not segment-specific.,Add segment/TAM capacity layers.
+5. Business Reality Alignment,B2,Streaming,❌ Fail,No explicit sales cycle / onboarding delay for SaaS and only limited timing for streaming.,Revenue timing too optimistic.,Add pipeline and onboarding lag mechanics.
+5. Business Reality Alignment,B3,Streaming,⚠️ Partial,Streaming lumps are less relevant but campaign bursts not modeled.,User acquisition smoothness may be unrealistic.,Add campaign pulse effect.
+5. Business Reality Alignment,B4,Streaming,⚠️ Partial,"Customer behavior dynamic exists, team behavior does not.",Operational adaptation missing.,Add productivity / service response effects.
+5. Business Reality Alignment,B5,Streaming,⚠️ Partial,"Price pressure affects churn, but explicit elasticity calibration is limited.",Weak pricing response realism.,Add price elasticity parameterization.
+5. Business Reality Alignment,B6,Streaming,❌ Fail,No explicit operational bottleneck variables.,Forecast ignores execution ceilings.,Add capacity / staffing / support bottleneck variables.
+6. Dependency & Systemic Risk,Y1,Streaming,⚠️ Partial,"Macro shock and competition act as root factors, but dependency map is not explicit.",Same root factor may be counted inconsistently.,Add dependency map sheet.
+6. Dependency & Systemic Risk,Y2,Streaming,✅ Pass,Driver interdependencies are modeled in v3.,,
+6. Dependency & Systemic Risk,Y3,Streaming,⚠️ Partial,Correlated risks are scenario-bundled but not quantified.,Systemic downside understated.,Add joint-shock table/correlation matrix.
+6. Dependency & Systemic Risk,Y4,Streaming,✅ Pass,"Feedback loops exist for saturation, pressure, pricing/churn interactions.",,
+6. Dependency & Systemic Risk,Y5,Streaming,✅ Pass,"Growth, recession, competition, saturation regimes included.",,
+7. Edge Cases & Failure Modes,E1,Streaming,⚠️ Partial,"Top-customer not relevant, but platform/channel concentration still absent.",Distribution/channel shock missing.,Add distributor/channel shock scenario.
+7. Edge Cases & Failure Modes,E2,Streaming,⚠️ Partial,Acquisition miss appears through scenarios but not explicit deal slippage module.,Missed timing shocks not isolated.,Add slippage scenario and lag buckets.
+7. Edge Cases & Failure Modes,E3,Streaming,✅ Pass,Recession/competition/saturation materially slow growth.,,
+7. Edge Cases & Failure Modes,E4,Streaming,⚠️ Partial,Pricing failure not isolated from macro/competition.,Cannot isolate pricing experiment risk.,Add failed-price-increase scenario.
+7. Edge Cases & Failure Modes,E5,Streaming,⚠️ Partial,Stress scenarios exist but not truly extreme tail cases.,Black-swan downside understated.,Add severe stress tests.
+7. Edge Cases & Failure Modes,E6,Streaming,✅ Pass,Model remains logical under tested scenarios; no bridge breaks.,,
+8. Output Risk & Interpretation,O1,Streaming,⚠️ Partial,Some outputs still over-decimalized.,False precision.,Round executive outputs.
+8. Output Risk & Interpretation,O2,Streaming,⚠️ Partial,Ranges exist but not consistently front-and-center for both domains.,Users may over-read point estimates.,Lead with ranges and bands in reports/dashboard.
+8. Output Risk & Interpretation,O3,Streaming,⚠️ Partial,"Reports warn about uncertainty, but workbook dashboard still foregrounds point estimates.",Deterministic misuse.,Add uncertainty banners and scenario comparison summary.
+8. Output Risk & Interpretation,O4,Streaming,⚠️ Partial,"Some volatility through scenarios, not enough intra-scenario volatility/lumpiness.",Too smooth.,Add controlled volatility/lumpiness.
+8. Output Risk & Interpretation,O5,Streaming,✅ Pass,Drivers are reasonably explainable in v3 reports.,,
+9. Model Purpose & Bias,P1,Streaming,⚠️ Partial,"Purpose is described as planning/forecasting, but target-setting boundaries are not explicit enough.",Misuse as quota/commit target.,Add explicit intended-use statement.
+9. Model Purpose & Bias,P2,Streaming,⚠️ Partial,Assumptions are mostly planning-oriented but some benchmark norms may be read as targets.,Normative benchmark bias.,Separate benchmark reference from target assumptions.
+9. Model Purpose & Bias,P3,Streaming,✅ Pass,v3 accepts weak CLV/CAC and downside scenarios.,,
+9. Model Purpose & Bias,P4,Streaming,✅ Pass,Downside cases represented.,,
+9. Model Purpose & Bias,P5,Streaming,⚠️ Partial,Base case may still be optimistic because operational bottlenecks absent.,Slight optimism bias.,Add bottleneck and delay realism.
+10. Unit Economics Consistency,U1,Streaming,✅ Pass,Streaming excludes unsupported CAC and avoids false unit-economics linkage.,,
+10. Unit Economics Consistency,U2,Streaming,✅ Pass,Expansion tied to retained / installed base.,,
+10. Unit Economics Consistency,U3,Streaming,✅ Pass,Growth slows in high-churn and recession scenarios.,,
+10. Unit Economics Consistency,U4,Streaming,⚠️ Partial,Streaming has no explicit gross margin layer.,Economic quality incomplete.,Keep excluded or add clearly-labeled margin proxy.
+10. Unit Economics Consistency,U5,Streaming,✅ Pass,Streaming does not overstate efficiency metrics it cannot support.,,

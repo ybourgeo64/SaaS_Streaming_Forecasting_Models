@@ -1,0 +1,119 @@
+section,check_id,check_text,model_domain,severity_weight
+1. Assumptions Audit,A1,Are all major assumptions explicit and centralized rather than buried in code or narrative?,SaaS,3
+1. Assumptions Audit,A1,Are all major assumptions explicit and centralized rather than buried in code or narrative?,Streaming,3
+1. Assumptions Audit,A2,Are causal relationships stated clearly for each major driver?,SaaS,3
+1. Assumptions Audit,A2,Are causal relationships stated clearly for each major driver?,Streaming,3
+1. Assumptions Audit,A3,Are historical dependencies or precedent links documented where used?,SaaS,2
+1. Assumptions Audit,A3,Are historical dependencies or precedent links documented where used?,Streaming,2
+1. Assumptions Audit,A4,Are policy / management intervention assumptions explicitly separated from organic behavior?,SaaS,2
+1. Assumptions Audit,A4,Are policy / management intervention assumptions explicitly separated from organic behavior?,Streaming,2
+1. Assumptions Audit,A5,Are contradictory assumptions absent across model layers and reports?,SaaS,3
+1. Assumptions Audit,A5,Are contradictory assumptions absent across model layers and reports?,Streaming,3
+1. Assumptions Audit,A6,Is false precision avoided in key assumptions and outputs?,SaaS,2
+1. Assumptions Audit,A6,Is false precision avoided in key assumptions and outputs?,Streaming,2
+1. Assumptions Audit,A7,"Is outcome bias avoided, i.e. assumptions are not tuned to a preferred narrative?",SaaS,3
+1. Assumptions Audit,A7,"Is outcome bias avoided, i.e. assumptions are not tuned to a preferred narrative?",Streaming,3
+2. Structural Risks,S1,Are circular dependencies eliminated?,SaaS,3
+2. Structural Risks,S1,Are circular dependencies eliminated?,Streaming,3
+2. Structural Risks,S2,Are outputs not being derived from themselves indirectly?,SaaS,3
+2. Structural Risks,S2,Are outputs not being derived from themselves indirectly?,Streaming,3
+2. Structural Risks,S3,Are important non-linear relationships represented where needed?,SaaS,2
+2. Structural Risks,S3,Are important non-linear relationships represented where needed?,Streaming,2
+2. Structural Risks,S4,Is double-counting removed from revenue and customer bridges?,SaaS,3
+2. Structural Risks,S4,Is double-counting removed from revenue and customer bridges?,Streaming,3
+2. Structural Risks,S5,Is top-down logic consistent with bottom-up logic?,SaaS,3
+2. Structural Risks,S5,Is top-down logic consistent with bottom-up logic?,Streaming,3
+2. Structural Risks,S6,Are cohort aggregations handled correctly?,SaaS,2
+2. Structural Risks,S6,Are cohort aggregations handled correctly?,Streaming,2
+2. Structural Risks,S7,Are timing and lags modeled explicitly where material?,SaaS,3
+2. Structural Risks,S7,Are timing and lags modeled explicitly where material?,Streaming,3
+2. Structural Risks,S8,Are hardcoded values minimized and parameterized?,SaaS,2
+2. Structural Risks,S8,Are hardcoded values minimized and parameterized?,Streaming,2
+3. Sensitivity Risks,R1,Are dominant drivers identified explicitly?,SaaS,2
+3. Sensitivity Risks,R1,Are dominant drivers identified explicitly?,Streaming,2
+3. Sensitivity Risks,R2,Are disproportionate output swings tested and disclosed?,SaaS,3
+3. Sensitivity Risks,R2,Are disproportionate output swings tested and disclosed?,Streaming,3
+3. Sensitivity Risks,R3,Is uncertainty quantified for key drivers?,SaaS,3
+3. Sensitivity Risks,R3,Is uncertainty quantified for key drivers?,Streaming,3
+3. Sensitivity Risks,R4,Are correlated driver risks modeled or discussed?,SaaS,2
+3. Sensitivity Risks,R4,Are correlated driver risks modeled or discussed?,Streaming,2
+3. Sensitivity Risks,R5,Are assumption ranges wide enough to be decision-useful?,SaaS,2
+3. Sensitivity Risks,R5,Are assumption ranges wide enough to be decision-useful?,Streaming,2
+3. Sensitivity Risks,R6,Are non-linear sensitivity effects handled?,SaaS,2
+3. Sensitivity Risks,R6,Are non-linear sensitivity effects handled?,Streaming,2
+4. Data & Input Integrity,D1,Are source data and benchmark inputs validated and cited?,SaaS,3
+4. Data & Input Integrity,D1,Are source data and benchmark inputs validated and cited?,Streaming,3
+4. Data & Input Integrity,D2,Are manual overrides documented?,SaaS,2
+4. Data & Input Integrity,D2,Are manual overrides documented?,Streaming,2
+4. Data & Input Integrity,D3,Is there an audit trail from source to output?,SaaS,3
+4. Data & Input Integrity,D3,Is there an audit trail from source to output?,Streaming,3
+4. Data & Input Integrity,D4,Are anomalies / one-offs prevented from dominating logic?,SaaS,2
+4. Data & Input Integrity,D4,Are anomalies / one-offs prevented from dominating logic?,Streaming,2
+4. Data & Input Integrity,D5,Are organic behavior and interventions separated?,SaaS,2
+4. Data & Input Integrity,D5,Are organic behavior and interventions separated?,Streaming,2
+4. Data & Input Integrity,D6,Are lagging indicators not misused as leading inputs?,SaaS,3
+4. Data & Input Integrity,D6,Are lagging indicators not misused as leading inputs?,Streaming,3
+5. Business Reality Alignment,B1,Are capacity constraints modeled?,SaaS,3
+5. Business Reality Alignment,B1,Are capacity constraints modeled?,Streaming,3
+5. Business Reality Alignment,B2,Are sales cycles / onboarding delays represented where relevant?,SaaS,3
+5. Business Reality Alignment,B2,Are sales cycles / onboarding delays represented where relevant?,Streaming,3
+5. Business Reality Alignment,B3,Is enterprise deal lumpiness or timing variability modeled?,SaaS,2
+5. Business Reality Alignment,B3,Is enterprise deal lumpiness or timing variability modeled?,Streaming,2
+5. Business Reality Alignment,B4,Are dynamic team / customer behaviors represented?,SaaS,2
+5. Business Reality Alignment,B4,Are dynamic team / customer behaviors represented?,Streaming,2
+5. Business Reality Alignment,B5,Are pricing response effects modeled?,SaaS,2
+5. Business Reality Alignment,B5,Are pricing response effects modeled?,Streaming,2
+5. Business Reality Alignment,B6,Are operational bottlenecks represented or disclosed?,SaaS,2
+5. Business Reality Alignment,B6,Are operational bottlenecks represented or disclosed?,Streaming,2
+6. Dependency & Systemic Risk,Y1,Are root-factor dependencies identified?,SaaS,2
+6. Dependency & Systemic Risk,Y1,Are root-factor dependencies identified?,Streaming,2
+6. Dependency & Systemic Risk,Y2,Are driver interdependencies explicit?,SaaS,3
+6. Dependency & Systemic Risk,Y2,Are driver interdependencies explicit?,Streaming,3
+6. Dependency & Systemic Risk,Y3,Are correlated risks quantified or scenario-tested?,SaaS,2
+6. Dependency & Systemic Risk,Y3,Are correlated risks quantified or scenario-tested?,Streaming,2
+6. Dependency & Systemic Risk,Y4,Are feedback loops modeled?,SaaS,3
+6. Dependency & Systemic Risk,Y4,Are feedback loops modeled?,Streaming,3
+6. Dependency & Systemic Risk,Y5,Are regime changes (growth to saturation / competition / recession) modeled?,SaaS,3
+6. Dependency & Systemic Risk,Y5,Are regime changes (growth to saturation / competition / recession) modeled?,Streaming,3
+7. Edge Cases & Failure Modes,E1,Is top-customer / top-account churn impact handled where material?,SaaS,2
+7. Edge Cases & Failure Modes,E1,Is top-customer / top-account churn impact handled where material?,Streaming,2
+7. Edge Cases & Failure Modes,E2,Is major deal slippage or acquisition miss handled?,SaaS,3
+7. Edge Cases & Failure Modes,E2,Is major deal slippage or acquisition miss handled?,Streaming,3
+7. Edge Cases & Failure Modes,E3,Is abrupt growth slowdown modeled?,SaaS,3
+7. Edge Cases & Failure Modes,E3,Is abrupt growth slowdown modeled?,Streaming,3
+7. Edge Cases & Failure Modes,E4,Is pricing change failure modeled?,SaaS,2
+7. Edge Cases & Failure Modes,E4,Is pricing change failure modeled?,Streaming,2
+7. Edge Cases & Failure Modes,E5,Are extreme scenarios tested?,SaaS,3
+7. Edge Cases & Failure Modes,E5,Are extreme scenarios tested?,Streaming,3
+7. Edge Cases & Failure Modes,E6,Does the model behave logically at extremes?,SaaS,3
+7. Edge Cases & Failure Modes,E6,Does the model behave logically at extremes?,Streaming,3
+8. Output Risk & Interpretation,O1,Is false precision removed from outputs?,SaaS,2
+8. Output Risk & Interpretation,O1,Is false precision removed from outputs?,Streaming,2
+8. Output Risk & Interpretation,O2,Are uncertainty ranges clearly communicated?,SaaS,3
+8. Output Risk & Interpretation,O2,Are uncertainty ranges clearly communicated?,Streaming,3
+8. Output Risk & Interpretation,O3,Is deterministic misinterpretation actively prevented?,SaaS,2
+8. Output Risk & Interpretation,O3,Is deterministic misinterpretation actively prevented?,Streaming,2
+8. Output Risk & Interpretation,O4,Is real-world volatility reflected?,SaaS,2
+8. Output Risk & Interpretation,O4,Is real-world volatility reflected?,Streaming,2
+8. Output Risk & Interpretation,O5,Are driver explanations transparent enough for decision-makers?,SaaS,2
+8. Output Risk & Interpretation,O5,Are driver explanations transparent enough for decision-makers?,Streaming,2
+9. Model Purpose & Bias,P1,Is model purpose clearly defined (planning / forecasting / target-setting)?,SaaS,2
+9. Model Purpose & Bias,P1,Is model purpose clearly defined (planning / forecasting / target-setting)?,Streaming,2
+9. Model Purpose & Bias,P2,Are assumptions aligned to that purpose?,SaaS,2
+9. Model Purpose & Bias,P2,Are assumptions aligned to that purpose?,Streaming,2
+9. Model Purpose & Bias,P3,Is narrative pressure bias removed?,SaaS,3
+9. Model Purpose & Bias,P3,Is narrative pressure bias removed?,Streaming,3
+9. Model Purpose & Bias,P4,Are downside risks represented fairly?,SaaS,3
+9. Model Purpose & Bias,P4,Are downside risks represented fairly?,Streaming,3
+9. Model Purpose & Bias,P5,Is optimism/pessimism balanced?,SaaS,2
+9. Model Purpose & Bias,P5,Is optimism/pessimism balanced?,Streaming,2
+10. Unit Economics Consistency,U1,"Are CAC, CLV/LTV, churn, and ARPU/ARPA internally aligned?",SaaS,3
+10. Unit Economics Consistency,U1,"Are CAC, CLV/LTV, churn, and ARPU/ARPA internally aligned?",Streaming,3
+10. Unit Economics Consistency,U2,Is expansion consistent with base dynamics?,SaaS,2
+10. Unit Economics Consistency,U2,Is expansion consistent with base dynamics?,Streaming,2
+10. Unit Economics Consistency,U3,Are retention and growth coherent together?,SaaS,3
+10. Unit Economics Consistency,U3,Are retention and growth coherent together?,Streaming,3
+10. Unit Economics Consistency,U4,Are margins aligned with scale and context?,SaaS,2
+10. Unit Economics Consistency,U4,Are margins aligned with scale and context?,Streaming,2
+10. Unit Economics Consistency,U5,Are growth and efficiency not contradicting each other?,SaaS,3
+10. Unit Economics Consistency,U5,Are growth and efficiency not contradicting each other?,Streaming,3
